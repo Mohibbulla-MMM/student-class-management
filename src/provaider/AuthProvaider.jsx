@@ -9,13 +9,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../firebase/firebase.confing";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export const AuthContext = createContext();
 const googleProvaider = new GoogleAuthProvider();
 const AuthProvaider = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
-  // const axiosPublic = useAxiosPublic();
+  const axiosPublic = useAxiosPublic();
 
   // user create email or password
   const createUserWithEmail = (email, password) => {
@@ -50,23 +51,22 @@ const AuthProvaider = ({ children }) => {
   useEffect(() => {
     const userObserver = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
-      // if (currentUser) {
-      //   // TODO: token create
-      //   const user = { email: currentUser.email };
-      //   await axiosPublic.post("/jwt", user).then((res) => {
-      //     // res.data
-      //     // console.log(res.data.token);
-      //     if (res.data.token) {
-      //       localStorage.setItem("jwt-token", res.data.token);
-      //       setLoading(false);
-      //     }
-      //   });
-      // } else {
-      //   // TODO: token cancel
-      //   localStorage.removeItem("jwt-token");
-      //   setLoading(false);
-      // }
-      // setLoading(false);
+      if (currentUser) {
+        // TODO: token create
+        const user = { email: currentUser.email };
+        await axiosPublic.post("/jwt", user).then((res) => {
+          // res.data
+          // console.log(res.data.token);
+          if (res.data?.token) {
+            localStorage.setItem("jwt-token", res.data.token);
+            setLoading(false);
+          }
+        });
+      } else {
+        localStorage.removeItem("jwt-token");
+        setLoading(false);
+      }
+      setLoading(false);
       console.log("Current User: ", currentUser?.email);
     });
     return () => userObserver();

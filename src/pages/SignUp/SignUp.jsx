@@ -14,8 +14,7 @@ import { useForm } from "react-hook-form";
 import saveImage from "../../hooks/saveImage";
 import useAuth from "../../hooks/useAuth";
 import { ImSpinner9 } from "react-icons/im";
-// const imageHostinSecurityApi = import.meta.env.VITE_MIAGE_HOSTING_KEY;
-// const imageUploadHoltinUrl = `https://api.imgbb.com/1/upload?key=${imageHostinSecurityApi}`;
+ 
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
@@ -228,7 +227,7 @@ const SignUp = () => {
 
               {/* or title  */}
               <div className="relative flex justify-center items-center py-4 ">
-                <span className="p-2 btn btn-sm btn-ghost border-2 border-gray-500  btn-circle    bg-whitehover:bg-white  capitalize z-10 ">
+                <span className="p-2 btn btn-sm btn-ghost border-2 border-gray-500  btn-circle    bg-white hover:bg-white  capitalize z-10 ">
                   or
                 </span>
                 <span className="absolute w-full h-[2px] bg-gray-500"></span>

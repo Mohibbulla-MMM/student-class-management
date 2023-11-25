@@ -1,6 +1,6 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Container from "../../utils/Container";
-import { MdDescription } from "react-icons/md";
+import Payment from "../Payment";
 
 const AllClassesSingle = () => {
   const data = useLoaderData();
@@ -8,7 +8,8 @@ const AllClassesSingle = () => {
   return (
     <div className="bg-purple-100 py-10">
       <Container>
-        <div className="max-w-xl mx-auto space-y-2 bg-white rounded-2xl overflow-hidden shadow-2xl">
+        {/* class information */}
+        <div className=" flex-1 max-w-xl mx-auto space-y-2 bg-white rounded-2xl overflow-hidden shadow-2xl  ">
           <figure>
             <img className="w-full " src={data?.image} alt="" />
           </figure>
@@ -30,9 +31,9 @@ const AllClassesSingle = () => {
               </div>
               {/* totalInroll */}
               <div className="flex gap-2 text-lg font-semibold text-gray-500 border-b">
-                <div className="w-32 uppercase">totalInroll</div>
+                <div className="w-32 uppercase">total-Enroll</div>
                 <div className="flex-1 font-normal">
-                  {data?.totalInroll || 0}
+                  {data?.totalEnroll || 0}
                 </div>
               </div>
 
@@ -50,11 +51,30 @@ const AllClassesSingle = () => {
             {/* description */}
             <p className="text-gray-500">{data.description}</p>
           </div>
-          <Link className="btn btn-block rounded-none text-lg btn-ghost hover:bg-purple-800 bg-purple-400 hover:text-white">
+          <button
+            onClick={() => document.getElementById("my_modal_3").showModal()}
+            className="btn btn-block rounded-none text-lg btn-ghost hover:bg-purple-800 bg-purple-400 hover:text-white"
+          >
             Pay Now
-          </Link>
+          </button>
         </div>
       </Container>
+
+      {/* payment modal  */}
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      {/* You can open the modal using document.getElementById('ID').showModal() method */}
+
+      <dialog id="my_modal_3" className="modal">
+        <div className="modal-box bg-white">
+          <form method="dialog">
+            {/* if there is a button in form, it will close the modal */}
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
+          <Payment data={data} />
+        </div>
+      </dialog>
     </div>
   );
 };

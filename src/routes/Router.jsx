@@ -16,6 +16,8 @@ import MyClass from "../pages/dashbord/teacher/MyClass/MyClass";
 import AllClassesSingle from "../pages/AllClasses/AllClassesSingle";
 
 import axios from "axios";
+import Payment from "../pages/Payment";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -33,9 +35,15 @@ const Router = createBrowserRouter([
       },
       {
         path: "all-classes/:id",
-        element: <AllClassesSingle />,
+        element: (
+          <PrivateRoute>
+            <AllClassesSingle />
+          </PrivateRoute>
+        ),
         loader: async ({ params }) =>
-          await axios.get(`${import.meta.env.VITE_SERVER_BASE_URL}/classes/${params.id}`).then((res) => res.data),
+          await axios
+            .get(`${import.meta.env.VITE_SERVER_BASE_URL}/classes/${params.id}`)
+            .then((res) => res.data),
       },
       {
         path: "teach-on-easy",
@@ -48,6 +56,10 @@ const Router = createBrowserRouter([
       {
         path: "sign-up",
         element: <SignUp />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
     ],
   },

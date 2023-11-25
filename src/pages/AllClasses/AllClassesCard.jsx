@@ -24,12 +24,14 @@ const AllClassesCard = ({ item }) => {
             price: <span>${price}</span>
           </p>
           <p className="text-gray-400 font-semibold capitalize">
-            Total Enroll: <span>{item?.totlaEnroll || 0}</span>
+            Total Enroll: <span>{item?.totalEnroll || 0}</span>
           </p>
         </div>
 
         {/* description  */}
-        <p className="text-gray-400">{description.slice(0, 200)}...</p>
+        <p className="text-gray-400">
+          {description && description?.slice(0, 200)}...
+        </p>
       </div>
       {/* button  */}
       <div>

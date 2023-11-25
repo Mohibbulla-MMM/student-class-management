@@ -38,6 +38,7 @@ const AddClass = () => {
           }:${date.getFullYear()}`,
           totalTime: data.totalTime,
           email: data.email,
+          totalEnroll: 0,
           price: parseInt(data.price),
           description: data.description,
           image: imageRes.data.display_url,
