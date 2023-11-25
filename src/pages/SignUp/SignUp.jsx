@@ -14,7 +14,8 @@ import { useForm } from "react-hook-form";
 import saveImage from "../../hooks/saveImage";
 import useAuth from "../../hooks/useAuth";
 import { ImSpinner9 } from "react-icons/im";
- 
+import MediaLogin from "../SignIn/MediaLogin";
+import useUserSave from "../../hooks/useUserSave";
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
@@ -42,7 +43,7 @@ const SignUp = () => {
     const password = data.password;
     const name = data.name;
 
-    console.log(userInfo);
+    // console.log(userInfo);
 
     try {
       const imageFile = data.image[0];
@@ -50,12 +51,23 @@ const SignUp = () => {
 
       if (res.data.display_url) {
         console.log(res.data.display_url);
-        createUserWithEmail(email, password).then(() => {
+        await createUserWithEmail(email, password).then(() => {
           userProfileUpdate(name, res.data.display_url).then(() => {
-            console.log("Success");
             setLoading(false);
           });
         });
+
+
+        // console.log(res);
+        const userData = {
+          name: data.name,
+          email: data.email,
+          password: data.password,
+          image: res.data.display_url,
+          role: "user",
+        };
+        // console.log(userData);
+        await useUserSave(userData);
       }
     } catch (err) {
       console.log(err);
@@ -233,7 +245,9 @@ const SignUp = () => {
                 <span className="absolute w-full h-[2px] bg-gray-500"></span>
               </div>
               {/* media login */}
-              <div>{/* <MediaLogin></MediaLogin>  */}</div>
+              <div>
+                <MediaLogin />
+              </div>
             </div>
           </div>
         </div>

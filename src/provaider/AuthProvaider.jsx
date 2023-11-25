@@ -67,7 +67,7 @@ const AuthProvaider = ({ children }) => {
         setLoading(false);
       }
       setLoading(false);
-      console.log("Current User: ", currentUser?.email);
+      console.log("Current User: ", currentUser);
     });
     return () => userObserver();
   }, []);

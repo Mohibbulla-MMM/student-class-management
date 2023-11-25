@@ -7,6 +7,7 @@ import Container from "../../utils/Container";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import "./Signin.css";
 import bgImg from "../../assets/10001.webp";
+import MediaLogin from "./MediaLogin";
 
 const SignIn = () => {
   const { loginUserWithEmail } = useAuth();
@@ -156,7 +157,9 @@ const SignIn = () => {
                 <span className="absolute w-full h-[2px] bg-gray-500"></span>
               </div>
               {/* media login */}
-              <div>{/* <MediaLogin></MediaLogin>  */}</div>
+              <div>
+                <MediaLogin />
+              </div>
             </div>
           </div>
         </div>

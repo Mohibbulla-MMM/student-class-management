@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { AiOutlineGoogle } from "react-icons/ai";
+import useUserSave from "../../hooks/useUserSave";
 
 const GooglePopup = () => {
   const { loginUserWithEmailPopup } = useAuth();
@@ -24,8 +25,10 @@ const GooglePopup = () => {
         const userInfo = {
           name: res.user.displayName,
           email: res.user.email,
+          image: res.user.photoURL,
         };
-        // useUserSave(userInfo);
+        // console.log(userInfo);
+        await useUserSave(userInfo);
         // console.log(res);
         toast.success("Login success", { id: loadingId });
         navigate(from, { replace: true });
