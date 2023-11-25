@@ -1,0 +1,86 @@
+.mm-input-design {
+    width: 100%;
+    position: relative;
+    min-height: 60px;
+    /* background-color: black; */
+}
+
+.mm-input-design input {
+    width: 100%;
+    display: block;
+    z-index: 10;
+    border: 2px solid gray;
+    padding: 14px 16px;
+    border-radius: 8px;
+    outline: none !important;
+}
+
+.mm-input-design input[type="file"] {
+    width: 100%;
+    display: none;
+    z-index: 10;
+    border: 2px dashed gray;
+    padding: 14px 16px;
+    border-radius: 8px;
+    outline: none !important;
+}
+
+ 
+
+.mm-input-design input:valid,
+.mm-input-design input:focus {
+    border-color: rgb(20, 184, 166);
+    outline: transparent !important;
+    /* outline: none; */
+}
+
+.mm-input-design input:valid~span,
+.mm-input-design input:focus~span {
+    border-left: 2px solid rgb(20, 184, 166);
+    border-right: 2px solid rgb(20, 184, 166);
+    border-top: 2px solid rgb(20, 184, 166);
+    border-bottom: 2px solid rgb(20, 184, 166);
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 5px;
+    /* border-bottom: black; */
+    padding: 2px 15px;
+    top: 0px;
+    opacity: 1;
+    z-index: 20;
+    /* background-color: #210021; */
+}
+
+
+/* .mm-input-design input:valid~span::before,
+.mm-input-design input:focus~span::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 2px;
+    height: 13px;
+    background-color: white;
+    z-index: 100;
+}
+
+.mm-input-design input:valid~span::after,
+.mm-input-design input:focus~span::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 2px;
+    height: 13px;
+    background-color: white;
+    z-index: 100;
+} */
+
+
+.mm-input-design span {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    transition: all 0.2s;
+}

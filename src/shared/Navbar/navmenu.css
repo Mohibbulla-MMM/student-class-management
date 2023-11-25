@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    .active-nav-menu {
+        @apply btn btn-sm border-0 rounded-none bg-transparent border-b-[1px] border-purple-800 text-purple-800 m-0 hover:bg-purple-800 hover:text-white text-lg h-[60px]
+    }
+}
+
+@layer base {
+
+    .nav-menu {
+        @apply btn btn-sm border-0 rounded-none bg-transparent border-b-[1px] border-transparent m-0 hover:bg-purple-800 hover:text-white text-lg text-gray-900 h-[60px]
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .active-nav-menu {
+        @apply btn btn-sm border-0 rounded-none bg-transparent hover:text-white border-b-[1px] border-purple-800 hover:bg-purple-800  text-purple-800 m-0 text-lg
+    }
+
+    .nav-menu {
+        @apply btn btn-sm border-0 rounded-none bg-transparent border-white m-0 hover:bg-purple-800 hover:text-white  text-lg text-gray-900
+    }
+
+}
