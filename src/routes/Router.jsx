@@ -6,6 +6,13 @@ import AllClasses from "../pages/AllClasses/AllClasses";
 import TeachOnEasy from "../pages/TeachOnEasy/TeachOnEasy";
 import SignIn from "../pages/SignIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
+import DashbordLayout from "../layout/DashbordLayout";
+import Profile from "../pages/dashbord/Profile/Profile";
+import AddClass from "../pages/dashbord/teacher/AddClass/AddClass";
+import TeacherRequest from "../pages/dashbord/admin/TeacherRequest/TeacherRequest";
+import Users from "../pages/dashbord/admin/Users/Users";
+import Allclass from "../pages/dashbord/admin/Allclass/Allclass";
+import MyClass from "../pages/dashbord/teacher/MyClass/MyClass";
 
 const Router = createBrowserRouter([
   {
@@ -32,6 +39,39 @@ const Router = createBrowserRouter([
       {
         path: "sign-up",
         element: <SignUp />,
+      },
+    ],
+  },
+  // dasdbord layout ---------------
+  {
+    path: "/dashbord",
+    element: <DashbordLayout />,
+    // errorElement:
+    children: [
+      {
+        // path: "/",
+        index: true,
+        element: <Profile />,
+      },
+      {
+        path: "add-class",
+        element: <AddClass />,
+      },
+      {
+        path: "my-class",
+        element: <MyClass />,
+      },
+      {
+        path: "teacher-request",
+        element: <TeacherRequest />,
+      },
+      {
+        path: "users",
+        element: <Users />,
+      },
+      {
+        path: "all-class",
+        element: <Allclass />,
       },
     ],
   },

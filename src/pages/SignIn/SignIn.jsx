@@ -40,7 +40,7 @@ const SignIn = () => {
   return (
     <div
       style={{ backgroundImage: `url(${bgImg})` }}
-      className="bg-cover bg-white     min-h-screen py-16 text-gray-800"
+      className="bg-cover bg-white     min-h-screen py-16 text-gray-800 z-20"
     >
       <Helmet>
         <title>Login || EasyTeach</title>

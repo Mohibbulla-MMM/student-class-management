@@ -29,7 +29,7 @@ const UserMenu = () => {
         <NavLink className="p-1 px-3 hover:bg-purple-200  ">
           {user && user?.displayName}
         </NavLink>
-        <NavLink className="p-1 px-3 hover:bg-purple-200  ">Dashbord</NavLink>
+        <NavLink to='/dashbord' className="p-1 px-3 hover:bg-purple-200  ">Dashbord</NavLink>
         <div
           onClick={() => logOut()}
           className="p-1 px-3 hover:bg-purple-200  "
