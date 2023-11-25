@@ -3,9 +3,12 @@ import { NavLink } from "react-router-dom";
 import { MdGroups } from "react-icons/md";
 import { FaBook } from "react-icons/fa6";
 import { RiGitPullRequestFill } from "react-icons/ri";
+import useRoleChaker from "../../../../hooks/useRoleChaker";
 
 const DashMenu = () => {
-  const roolChaker = "teacher";
+  // const roolChaker = "laksdfjk ";
+  const roolChaker = useRoleChaker();
+  console.log(roolChaker);
 
   return (
     <div className="w-full space-y-1">
@@ -78,7 +81,7 @@ const DashMenu = () => {
       )}
 
       {/* user rool menu ------------------ */}
-      {roolChaker === "student" && (
+      {roolChaker === "user" && (
         <>
           <NavLink
             to="/dashbord"
