@@ -13,6 +13,9 @@ import TeacherRequest from "../pages/dashbord/admin/TeacherRequest/TeacherReques
 import Users from "../pages/dashbord/admin/Users/Users";
 import Allclass from "../pages/dashbord/admin/Allclass/Allclass";
 import MyClass from "../pages/dashbord/teacher/MyClass/MyClass";
+import AllClassesSingle from "../pages/AllClasses/AllClassesSingle";
+
+import axios from "axios";
 
 const Router = createBrowserRouter([
   {
@@ -27,6 +30,12 @@ const Router = createBrowserRouter([
       {
         path: "all-classes",
         element: <AllClasses />,
+      },
+      {
+        path: "all-classes/:id",
+        element: <AllClassesSingle />,
+        loader: async ({ params }) =>
+          await axios.get(`${import.meta.env.VITE_SERVER_BASE_URL}/classes/${params.id}`).then((res) => res.data),
       },
       {
         path: "teach-on-easy",

@@ -1,8 +1,17 @@
 import { useForm } from "react-hook-form";
 import { FaUpload } from "react-icons/fa";
 import SectionTitle from "../../../../shared/SectionTitle/SectionTitle";
-
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import saveImage from "../../../../hooks/saveImage";
+import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react";
+import useAuth from "../../../../hooks/useAuth";
+import { ImSpinner9 } from "react-icons/im";
 const AddClass = () => {
+  const [loading, setLoading] = useState(false);
+  const { user } = useAuth();
+  const [date] = useState(new Date());
+  const axiosSecure = useAxiosSecure();
   const {
     register,
     handleSubmit,
@@ -11,8 +20,47 @@ const AddClass = () => {
   } = useForm();
 
   // handle add class
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const loadingId = toast.loading("please wait");
+    setLoading(true);
+    try {
+      const imageFile = data.image[0];
+      const imageRes = await saveImage(imageFile);
+      console.log(imageRes);
+      if (imageRes.data.display_url) {
+        console.log(imageRes);
+        const classData = {
+          title: data.title,
+          name: data.name,
+          category: data.category,
+          date: `${date.getDate()}:${
+            date.getMonth() + 1
+          }:${date.getFullYear()}`,
+          totalTime: data.totalTime,
+          email: data.email,
+          price: parseInt(data.price),
+          description: data.description,
+          image: imageRes.data.display_url,
+          status: "pending",
+          progress: "progress",
+        };
+
+        await axiosSecure.post("/classes", classData).then((res) => {
+          console.log(res.data);
+          toast.success("Class Add Success ", {
+            id: loadingId,
+          });
+          setLoading(false);
+        });
+        console.log(classData);
+      }
+    } catch (err) {
+      toast.error("Class Add Failed ", {
+        id: loadingId,
+      });
+      setLoading(false);
+      console.log(err);
+    }
   };
 
   return (
@@ -20,7 +68,7 @@ const AddClass = () => {
       <SectionTitle title="Add Class " />
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="space-y-4">
+        <div className="space-y-4 mb-4">
           {/* title  */}
           <div>
             <p className="font-semibold">Class Title</p>
@@ -37,6 +85,51 @@ const AddClass = () => {
             )}
           </div>
 
+          {/* category   */}
+          <div>
+            <p className="font-semibold">Class Category</p>
+            <select
+              className="border-2 px-4 p-1 bg-white text-black text-lg w-full  focus:border-purple-600  outline-none "
+              {...register("category", { required: true })}
+              type="text"
+              defaultValue={" "}
+            >
+              <option value={" "} disabled>
+                Choose One{" "}
+              </option>
+              <option value="JAVASCRIPT">JAVASCRIPT</option>
+              <option value="PYTHON">PYTHON</option>
+              <option value="HTML">HTML</option>
+              <option value="JAVA">JAVA</option>
+              <option value="PHP">PHP</option>
+              <option value="CSS">CSS</option>
+              <option value="c++">c++</option>
+              <option value="c#">c#</option>
+              <option value="c">c</option>
+            </select>
+            {errors.title && (
+              <span className="text-red-600 font-semibold">
+                This field is required
+              </span>
+            )}
+          </div>
+
+          {/* totalTime  */}
+          <div>
+            <p className="font-semibold">Total Time</p>
+            <input
+              className="border-2 px-4 p-1 bg-white text-black text-lg w-full  focus:border-purple-600  outline-none "
+              placeholder="Enter title"
+              {...register("totalTime", { required: true })}
+              type="text"
+            />
+            {errors.totalTime && (
+              <span className="text-red-600 font-semibold">
+                This field is required
+              </span>
+            )}
+          </div>
+
           {/* name  */}
           <div>
             <p className="font-semibold">Your Name</p>
@@ -44,6 +137,9 @@ const AddClass = () => {
               className="border-2 px-4 p-1 bg-white text-black text-lg w-full focus:border-purple-600  outline-none "
               {...register("name", { required: true })}
               type="text"
+              defaultValue={user && user?.displayName}
+              readOnly
+              title="Not editable"
             />
             {errors.name && (
               <span className="text-red-600 font-semibold">
@@ -59,6 +155,9 @@ const AddClass = () => {
               className="border-2 px-4 p-1 bg-white text-black text-lg w-full focus:border-purple-600  outline-none"
               {...register("email", { required: true })}
               type="email"
+              defaultValue={user && user?.email}
+              readOnly
+              title="Not editable"
             />
             {errors.email && (
               <span className="text-red-600 font-semibold">
@@ -123,12 +222,21 @@ const AddClass = () => {
           </div>
 
           {/* submit button  */}
-          <input
+          <button
             type="submit"
             value="Add Class"
             className="btn bg-purple-800 text-white border-none rounded-none btn-block text-xl"
-          />
+          >
+            {loading ? (
+              <span className="animate-spin">
+                <ImSpinner9 />
+              </span>
+            ) : (
+              "Add Class"
+            )}
+          </button>
         </div>
+        <Toaster position="top-right" reverseOrder={false} />
       </form>
     </div>
   );

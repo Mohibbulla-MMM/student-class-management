@@ -1,7 +1,10 @@
+ 
 const Allclass = () => {
+
+ 
   return (
     <div>
-      <p>All class </p>
+      <p>All class page</p>
     </div>
   );
 };
