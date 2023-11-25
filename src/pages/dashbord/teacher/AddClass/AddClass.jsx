@@ -17,8 +17,8 @@ const AddClass = () => {
 
   return (
     <div>
-      <SectionTitle />
-      
+      <SectionTitle title="Add Class " />
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-4">
           {/* title  */}
