@@ -18,6 +18,7 @@ import AllClassesSingle from "../pages/AllClasses/AllClassesSingle";
 import axios from "axios";
 import Payment from "../pages/Payment";
 import PrivateRoute from "./PrivateRoute";
+import MyEnrollClass from "../pages/dashbord/MyEnrollClass/MyEnrollClass";
 
 const Router = createBrowserRouter([
   {
@@ -81,6 +82,14 @@ const Router = createBrowserRouter([
         // path: "/",
         index: true,
         element: <Profile />,
+      },
+      {
+        path: "my-enroll-class",
+        element: (
+          <PrivateRoute>
+            <MyEnrollClass />
+          </PrivateRoute>
+        ),
       },
       {
         path: "add-class",

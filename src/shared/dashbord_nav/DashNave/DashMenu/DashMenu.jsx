@@ -90,6 +90,13 @@ const DashMenu = () => {
             <FaUser />
             Profile
           </NavLink>
+          <NavLink
+            to="/dashbord/my-enroll-class"
+            className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
+          >
+            <FaBook />
+            My Classes
+          </NavLink>
         </>
       )}
     </div>

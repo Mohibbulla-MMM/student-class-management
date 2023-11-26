@@ -1,12 +1,13 @@
 import toast, { Toaster } from "react-hot-toast";
-import useAllClasses from "../../../../hooks/useAllClasses";
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../../../shared/SectionTitle/SectionTitle";
 import myModal from "../Users/myModal";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAllClass from "../../../../hooks/useAllClass";
 
 const Allclass = () => {
-  const [classes, refetch] = useAllClasses();
+  const [classes, refetch] = useAllClass();
+  console.log(classes);
   const axiosSecure = useAxiosSecure();
 
   // handle admin make popUp -------------
@@ -85,7 +86,7 @@ const Allclass = () => {
                   <td className="w-52 block">
                     <figure>
                       <img
-                        className="w-52 h-32 object-cover rounded bg-purple-100 block"
+                        className="w-52 h-32 object-cover rounded bg-purple-100 block border"
                         src={item?.image}
                         alt=""
                       />
@@ -97,6 +98,13 @@ const Allclass = () => {
                       {item?.title}
                     </span>
                   </td>
+                  {/* description  */}
+                  <td>
+                    <span className="text-xs block w-52 h-36 overflow-hidden text-justify">
+                      {item?.description}
+                    </span>
+                  </td>
+                  {/* name adn email  */}
                   <td>
                     <span className="whitespace-nowrap uppercase font-bold">
                       {item?.name}
@@ -104,11 +112,7 @@ const Allclass = () => {
                     <br />
                     <span className="whitespace-nowrap">{item?.email}</span>
                   </td>
-                  <td>
-                    <span className="text-xs block w-52 h-40 overflow-hidden text-justify">
-                      {item?.description}
-                    </span>
-                  </td>
+
                   {/* status --------- */}
                   <td>
                     <span className="capitalize font-bold">
@@ -118,6 +122,7 @@ const Allclass = () => {
                   {/* Action button */}
                   <td>
                     <span className="flex items-center justify-center gap-1 flex-col">
+                      {/* approve button */}
                       <button
                         disabled={item?.status === "approved"}
                         onClick={() => handleClassApprovePopup(item)}
@@ -125,6 +130,7 @@ const Allclass = () => {
                       >
                         Approve
                       </button>
+
                       {/* reject button  */}
                       <button
                         disabled={item?.status === "rejected"}
@@ -136,6 +142,13 @@ const Allclass = () => {
                       {/* parmanently delete button  */}
                       <button className="btn btn-sm border-none  rounded   text-white w-28 bg-red-800 ">
                         Delete
+                      </button>
+                      {/* see progress buton  */}
+                      <button
+                        disabled={item?.status !== "approved"}
+                        className="btn btn-sm bg-green-800 border-none  rounded    text-white  w-28 "
+                      >
+                        See Progress
                       </button>
                     </span>
                   </td>

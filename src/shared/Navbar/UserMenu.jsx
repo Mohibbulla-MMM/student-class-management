@@ -13,7 +13,7 @@ const UserMenu = () => {
             <img
               src={user?.photoURL}
               alt=""
-              className="w-12 h-12 rounded-full object-cover scale-95 cursor-pointer"
+              className="w-12 h-12 shadow-xl border rounded-full object-cover scale-95 cursor-pointer"
             />
           </figure>
         ) : (

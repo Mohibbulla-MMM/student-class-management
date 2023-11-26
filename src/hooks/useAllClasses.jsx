@@ -6,7 +6,7 @@ const useAllClasses = () => {
   const { data: classes = [], refetch } = useQuery({
     queryKey: ["all-classes"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/classes");
+      const res = await axiosPublic.get("/classes/all");
       return res.data;
     },
   });

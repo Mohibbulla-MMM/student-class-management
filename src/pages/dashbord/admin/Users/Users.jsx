@@ -46,7 +46,7 @@ const Users = () => {
   const handleUserDeleteConfirm = async (id) => {
     try {
       console.log(id);
-      const res = await axiosSecure.patch(`/user-delete/${id}`);
+      const res = await axiosSecure.delete(`/user-delete/${id}`);
       refetch();
       if (res.data?.deletedCount) {
         toast.success("Remove success");

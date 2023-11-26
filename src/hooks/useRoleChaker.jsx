@@ -8,10 +8,10 @@ const useRoleChaker = () => {
 
   const { data: info = "user" } = useQuery({
     enabled: !loading,
-    queryKey: ["user-role-chaker", user?.email],
+    queryKey: ["user-role-chaker", user && user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/user-role-chaker/${user?.email}`);
-      return res.data?.role;
+      return res.data?.role || 'user';
     },
   });
 
