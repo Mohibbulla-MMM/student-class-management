@@ -59,14 +59,22 @@ const Router = createBrowserRouter([
       },
       {
         path: "payment",
-        element: <Payment />,
+        element: (
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        ),
       },
     ],
   },
   // dasdbord layout ---------------
   {
     path: "/dashbord",
-    element: <DashbordLayout />,
+    element: (
+      <PrivateRoute>
+        <DashbordLayout />
+      </PrivateRoute>
+    ),
     // errorElement:
     children: [
       {
@@ -76,11 +84,19 @@ const Router = createBrowserRouter([
       },
       {
         path: "add-class",
-        element: <AddClass />,
+        element: (
+          <PrivateRoute>
+            <AddClass />
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-class",
-        element: <MyClass />,
+        element: (
+          <PrivateRoute>
+            <MyClass />
+          </PrivateRoute>
+        ),
       },
       {
         path: "teacher-request",
