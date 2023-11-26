@@ -19,7 +19,7 @@ const Allclass = () => {
   const handleClassApproveConfirm = async (id) => {
     try {
       // console.log(id);
-      const res = await axiosSecure.patch(`/classes/approve/${id}`);
+      const res = await axiosSecure.patch(`/classes/approved/${id}`);
       // console.log(res.data);
       if (res.data?.modifiedCount) {
         toast.success("Class approved");
@@ -39,17 +39,17 @@ const Allclass = () => {
   // haddle user delete confirm
   const handleClassRejectConfirm = async (id) => {
     try {
-      console.log(id);
-      console.log(id);
-      // const res = await axiosSecure.patch(`/user-delete/${id}`);
-      refetch();
-      // if (res.data?.deletedCount) {
-      // }
+      // console.log(id);
+      // console.log(id);
+      const res = await axiosSecure.patch(`/classes/rejected/${id}`);
       // console.log(res.data);
-      toast.success("Reject success");
+      if (res.data?.modifiedCount) {
+        toast.success("Class rejected");
+      }
+      refetch();
     } catch (err) {
       console.log(err);
-      toast.error("Reject failed");
+      toast.error("Rejected failed");
     }
   };
 
@@ -119,7 +119,7 @@ const Allclass = () => {
                   <td>
                     <span className="flex items-center justify-center gap-1 flex-col">
                       <button
-                        disabled={item?.role === "admin"}
+                        disabled={item?.status === "approved"}
                         onClick={() => handleClassApprovePopup(item)}
                         className="btn btn-sm bg-purple-800 border-none  rounded    text-white  w-28 "
                       >
@@ -127,7 +127,7 @@ const Allclass = () => {
                       </button>
                       {/* reject button  */}
                       <button
-                        disabled={item?.role === "admin"}
+                        disabled={item?.status === "rejected"}
                         onClick={() => handleClassRejectPopup(item)}
                         className="btn btn-sm bg-yellow-600 border-none  rounded    text-white  w-28 "
                       >
