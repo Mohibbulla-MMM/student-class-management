@@ -9,17 +9,45 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 const TeacherRequest = () => {
   const [users, refetch] = useRequestedTeacher();
   const axiosSecure = useAxiosSecure();
-  // handle admin make popUp -------------
+
+  // handle approved make popUp -------------
   const handleApprovePop = async (item) => {
     // console.log(id);
     const text = "Do you want to approve his request ?";
-    await myModal(item?.image, item?._id, handleApproveConfirm, text);
+    await myModal(item?.image, item, handleApproveConfirm, text);
   };
-  // ====================== handleAdminConfirm
-  const handleApproveConfirm = async (id) => {
+  // ====================== handle approved Confirm
+  const handleApproveConfirm = async (item) => {
     try {
-      console.log(id);
-      const res = await axiosSecure.patch(`/request-approved/${id}`);
+      // console.log(item._id, item.email);
+      // console.log(item?._id);
+      const res = await axiosSecure.patch(`/request-approved/${item?._id}`, {
+        email: item?.email,
+      });
+      if (res.data) {
+        console.log(res.data);
+        toast.success("Request Approved");
+        refetch();
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("Request Approved failed");
+    }
+  };
+
+  // handle reject  make popUp -------------
+  const handleRejectedPop = async (item) => {
+    // console.log(id);
+    const text = "Do you want to Rejected his request ?";
+    await myModal(item?.image, item, handleRejectedConfirm, text);
+  };
+  // ====================== handle reject Confirm
+  const handleRejectedConfirm = async (item) => {
+    try {
+      // console.log(item._id, item.email);
+      const res = await axiosSecure.patch(`/request-rejected/${item?._id}`, {
+        email: item?.email,
+      });
       if (res.data) {
         console.log(res.data);
         toast.success("Request Approved");
@@ -50,7 +78,7 @@ const TeacherRequest = () => {
           <title>All Teacher || EasyteacH</title>
         </Helmet>
         <SectionTitle
-          subTitle={`total user: ${users?.length}`}
+          subTitle={`total Request: ${users?.length}`}
           title={"all teacher"}
         />
 
@@ -126,14 +154,14 @@ const TeacherRequest = () => {
                         </button>
                         <button
                           disabled={item?.status === "rejected"}
-                          // onClick={() => handleMakeAdmin(item)}
+                          onClick={() => handleRejectedPop(item)}
                           className="btn btn-sm bg-purple-800 border-none  rounded    text-white  w-32 "
                         >
                           Reject
                         </button>
                         <button
                           // disabled={item?.status === "rejected"}
-                          // onClick={() => handleMakeAdmin(item)}
+                          // onClick={() => handleMakereject (item)}
                           className="btn btn-sm bg-purple-800 border-none  rounded    text-white  w-32 "
                         >
                           Delete

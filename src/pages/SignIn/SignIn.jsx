@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import Container from "../../utils/Container";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -34,7 +34,7 @@ const SignIn = () => {
       })
       .catch((err) => {
         console.log(err);
-        toast.error("Login failed", err, { id: loginTostId });
+        toast.error(err.message, { id: loginTostId });
       });
   };
 
@@ -164,6 +164,7 @@ const SignIn = () => {
           </div>
         </div>
       </Container>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

@@ -16,6 +16,7 @@ import useAuth from "../../hooks/useAuth";
 import { ImSpinner9 } from "react-icons/im";
 import MediaLogin from "../SignIn/MediaLogin";
 import useUserSave from "../../hooks/useUserSave";
+import toast, { Toaster } from "react-hot-toast";
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
@@ -54,9 +55,9 @@ const SignUp = () => {
         await createUserWithEmail(email, password).then(() => {
           userProfileUpdate(name, res.data.display_url).then(() => {
             setLoading(false);
+            toast.success("Sign up success");
           });
         });
-
 
         // console.log(res);
         const userData = {
@@ -67,9 +68,11 @@ const SignUp = () => {
           role: "user",
         };
         // console.log(userData);
-        await useUserSave(userData);
+        const userSaveRes = await useUserSave(userData);
+        console.log(userSaveRes);
       }
     } catch (err) {
+      toast.error(err.message);
       console.log(err);
       setLoading(false);
     }
@@ -252,6 +255,7 @@ const SignUp = () => {
           </div>
         </div>
       </Container>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

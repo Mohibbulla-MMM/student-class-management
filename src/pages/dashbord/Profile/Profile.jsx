@@ -9,6 +9,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const Profile = () => {
   const { user } = useAuth();
   const [userInfo, refetch] = useProfile();
+  console.log(userInfo);
   const [edit, setEdit] = useState(false);
   const axiosSecure = useAxiosSecure();
   // console.log(userInfo);

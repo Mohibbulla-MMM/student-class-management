@@ -7,16 +7,17 @@ import SectionTitle from "../../shared/SectionTitle/SectionTitle";
 import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useTeacherRequest from "../../hooks/useTeacherRequest";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const TeachOnEasy = () => {
   const [rejectPop, setRejectPop] = useState(false);
   const [submitPop, setSubmitPop] = useState(false);
   const [userInfo] = useTeacherRequest();
-  console.log(userInfo?.status);
+  // console.log(userInfo?.status);
+  const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   // const [date] = useState(new Date());
   const {
     register,
@@ -70,7 +71,7 @@ const TeachOnEasy = () => {
           </div>
         </>
       ) : (
-        <>
+        <div>
           <SectionTitle title={"teacher request form"} subTitle={`welcom`} />
           <div className="max-w-2xl mx-auto p-4 shadow-xl ">
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -209,7 +210,7 @@ const TeachOnEasy = () => {
               </div>
             </form>
           </div>
-        </>
+        </div>
       )}
 
       {/* reject information  */}
@@ -233,6 +234,39 @@ const TeachOnEasy = () => {
               className="btn flex-1   rounded text-purple-800 hover:text-purple-800 border-2 border-purple-800 hover:border-purple-800    text-white bg-purple-800 hover:bg-white "
             >
               Request to another
+            </button>
+            <Link
+              to="/"
+              className="btn btn-outline  flex-1 rounded text-purple-800 border-2 border-purple-800 hover:border-purple-800   hover:text-white hover:bg-purple-800 "
+            >
+              Home
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* approved  information  */}
+      <div
+        className={` ${
+          userInfo && userInfo?.status === "approved" ? "block" : "hidden"
+        } 
+         w-screen h-screen bg-purple-50 bg-opacity-95 fixed top-0 left-0 flex justify-center items-center flex-col gap-2  ${
+           rejectPop ? "hidden" : "block"
+         }`}
+      >
+        <div className=" flex justify-center items-center flex-col gap-2 p-4 rounded-xl bg-gray-100 text-gray-700">
+          <h1 className="text-3xl font-bold">
+            Your Request already{" "}
+            <span className="text-purple-800">Approved</span>
+          </h1>
+          <p>You are given the teacher respect and access</p>
+          {/* request to another button and home button  */}
+          <div className="flex items-center w-full   gap-3">
+            <button
+              onClick={() => navigate(-1)}
+              className="btn flex-1   rounded text-purple-800 hover:text-purple-800 border-2 border-purple-800 hover:border-purple-800    text-white bg-purple-800 hover:bg-white "
+            >
+              Back
             </button>
             <Link
               to="/"
