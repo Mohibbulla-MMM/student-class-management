@@ -11,7 +11,7 @@ const DashMenu = () => {
   console.log(roolChaker);
 
   return (
-    <div className="w-full space-y-1">
+    <div className="w-full space-y-1 py-1">
       {/* admin rool menu -------------- */}
       {roolChaker === "admin" && (
         <>
