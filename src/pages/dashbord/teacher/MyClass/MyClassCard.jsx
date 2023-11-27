@@ -55,7 +55,7 @@ const MyClassCard = ({ item }) => {
       {/* button  */}
       <div className="flex items-center gap-1 ">
         <Link
-          // to={`/my-class/${item?._id}`}
+          to={`/dashbord/my-class/${item?._id}`}
           className="btn flex-1 rounded-none text-lg btn-ghost hover:bg-purple-800 bg-purple-200 hover:text-white"
         >
           Update
