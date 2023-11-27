@@ -8,8 +8,8 @@ import { useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import { ImSpinner9 } from "react-icons/im";
 const AddClass = () => {
+  const { user } = useAuth();   
   const [loading, setLoading] = useState(false);
-  const { user } = useAuth();
   const [date] = useState(new Date());
   const axiosSecure = useAxiosSecure();
   const {

@@ -48,7 +48,11 @@ const Router = createBrowserRouter([
       },
       {
         path: "teach-on-easy",
-        element: <TeachOnEasy />,
+        element: (
+          <PrivateRoute>
+            <TeachOnEasy />
+          </PrivateRoute>
+        ),
       },
       {
         path: "sign-in",
