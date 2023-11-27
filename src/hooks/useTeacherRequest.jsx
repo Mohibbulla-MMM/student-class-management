@@ -6,7 +6,7 @@ const useTeacherRequest = () => {
   const { user, loading } = useAuth();
   const axiosPublic = useAxiosPublic();
 
-  const { data: userInnfo, refetch } = useQuery({
+  const { data: userInfo, refetch } = useQuery({
     enabled: !loading,
     queryKey: ["teacher-request", user && user?.email],
     queryFn: async () => {
@@ -15,7 +15,7 @@ const useTeacherRequest = () => {
     },
   });
 
-  return [userInnfo, refetch];
+  return [userInfo, refetch];
 };
 
 export default useTeacherRequest;

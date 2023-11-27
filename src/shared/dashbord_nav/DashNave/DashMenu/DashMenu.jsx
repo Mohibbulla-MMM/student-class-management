@@ -8,7 +8,7 @@ import useRoleChaker from "../../../../hooks/useRoleChaker";
 const DashMenu = () => {
   // const roolChaker = "laksdfjk ";
   const roolChaker = useRoleChaker();
-  console.log(roolChaker);
+  // console.log(roolChaker);
 
   return (
     <div className="w-full space-y-1 py-1">

@@ -11,7 +11,11 @@ const myModal = (img, id, fn, text) => {
     >
       <div className="flex flex-col justify-center items-center max-w-xs min-w-[300px] bg-white p-4 rounded-xl gap-2">
         <figure>
-          <img className="h-32 w-32 rounded-full" src={img} alt="" />
+          <img
+            className="h-32 w-32 rounded-full object-cover"
+            src={img}
+            alt=""
+          />
         </figure>
         <h1 className="text-xl font-semibold text-center">{text}</h1>
         <div
