@@ -112,6 +112,14 @@ const Router = createBrowserRouter([
         ),
       },
       {
+        path: "my-class/:id",
+        element: (
+          <PrivateRoute>
+            <MyClass />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "teacher-request",
         element: <TeacherRequest />,
       },
