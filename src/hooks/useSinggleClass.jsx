@@ -3,7 +3,11 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useSinggleClass = (id) => {
   const axiosPublic = useAxiosPublic();
-  const { data: classes = [], refetch } = useQuery({
+  const {
+    data: classes = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["single-class"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/classes/${id}`);
@@ -11,7 +15,7 @@ const useSinggleClass = (id) => {
     },
   });
 
-  return [classes, refetch];
+  return [classes, refetch, isLoading];
 };
 
 export default useSinggleClass;
