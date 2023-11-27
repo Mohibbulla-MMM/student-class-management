@@ -4,7 +4,7 @@ import SectionTitle from "../../../../shared/SectionTitle/SectionTitle";
 import MyClassCard from "./MyClassCard";
 
 const MyClass = () => {
-  const [myClasses] = useMyClass();
+  const [myClasses, refetch, isLoading] = useMyClass();
   // console.log(myClasses);
   return (
     <div className="">
@@ -18,7 +18,9 @@ const MyClass = () => {
       {/* my class card */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
         {myClasses &&
-          myClasses?.map((item) => <MyClassCard key={item?._id} item={item} />)}
+          myClasses?.map((item) => (
+            <MyClassCard key={item?._id} item={item} refetch={refetch} />
+          ))}
       </div>
     </div>
   );

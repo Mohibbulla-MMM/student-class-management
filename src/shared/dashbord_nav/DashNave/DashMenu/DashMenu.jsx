@@ -6,7 +6,7 @@ import { RiGitPullRequestFill } from "react-icons/ri";
 import useRoleChaker from "../../../../hooks/useRoleChaker";
 
 const DashMenu = () => {
-  // const roolChaker = "laksdfjk ";
+  // const roolChaker = "teacher";
   const roolChaker = useRoleChaker();
   // console.log(roolChaker);
 

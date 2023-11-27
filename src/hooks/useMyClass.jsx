@@ -5,7 +5,11 @@ import useAuth from "./useAuth";
 const useMyClass = () => {
   const { user, loading } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const { data: myClass = [], refetch } = useQuery({
+  const {
+    data: myClass = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     enabled: !loading,
     queryKey: ["my-porfile", user && user?.email],
     queryFn: async () => {
@@ -13,8 +17,8 @@ const useMyClass = () => {
       return res.data;
     },
   });
-  console.log(myClass);
-  return [myClass, refetch];
+//   console.log(myClass);
+  return [myClass, refetch, isLoading];
 };
 
 export default useMyClass;

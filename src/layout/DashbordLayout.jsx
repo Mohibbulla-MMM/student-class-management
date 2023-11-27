@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import DashNave from "../shared/dashbord_nav/DashNave/DashNave";
+import { Toaster } from "react-hot-toast";
 
 const DashbordLayout = () => {
   return (
@@ -10,6 +11,7 @@ const DashbordLayout = () => {
       <div className="flex-1 px-3 ">
         <Outlet />
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

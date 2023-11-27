@@ -8,7 +8,7 @@ import { useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import { ImSpinner9 } from "react-icons/im";
 const AddClass = () => {
-  const { user } = useAuth();   
+  const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [date] = useState(new Date());
   const axiosSecure = useAxiosSecure();
@@ -30,6 +30,7 @@ const AddClass = () => {
       if (imageRes.data.display_url) {
         console.log(imageRes);
         const classData = {
+          avater: user?.photoURL,
           title: data.title,
           name: data.name,
           category: data.category,

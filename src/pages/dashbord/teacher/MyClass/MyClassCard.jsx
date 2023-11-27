@@ -1,8 +1,31 @@
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import myModal from "../../admin/Users/myModal";
 
-const MyClassCard = ({ item }) => {
+const MyClassCard = ({ item, refetch }) => {
   const { title, name, price, description, image } = item || {};
-  //   useSinggleClass
+  const axiosSecure = useAxiosSecure();
+  //   useSinggleClass pop =================
+  const handleDeletePop = async () => {
+    const text = "Are you sure you want to delete this class ?";
+    myModal(image, item?._id, handleDeleteConfirm, text);
+  };
+  const handleDeleteConfirm = async (id) => {
+    console.log(id);
+    try {
+      const delRes = await axiosSecure.delete(`/classes/${id}`);
+      console.log(delRes.data);
+      if (delRes.data?.deletedCount) {
+        toast.success("Class Update Success ", {});
+        refetch();
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("Class Update Success ", {});
+    }
+  };
+
   return (
     <div className="rounded-xl overflow-hidden   bg-purple-50">
       {/* 
@@ -62,13 +85,13 @@ const MyClassCard = ({ item }) => {
         </Link>
         <Link
           disabled={item?.status === "pending"}
-          // to={`/my-class/${item?._id}`}
+          to={`/dashbord/my-class-details/${item?._id}`}
           className="btn flex-1 rounded-none text-lg btn-ghost hover:bg-purple-800 bg-purple-200 hover:text-white"
         >
           See details
         </Link>
         <Link
-          // to={`/my-class/${item?._id}`}
+          onClick={handleDeletePop}
           className="btn flex-1 rounded-none text-lg btn-ghost hover:bg-purple-800 bg-purple-200 hover:text-white"
         >
           Delete
