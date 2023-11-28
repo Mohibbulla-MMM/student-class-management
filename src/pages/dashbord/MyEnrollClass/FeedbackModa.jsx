@@ -5,11 +5,12 @@ import toast from "react-hot-toast";
 import ReactStars from "react-rating-stars-component";
 // import React from "react";
 // import { render } from "react-dom";
-const FeedbackModa = ({ id }) => {
+const FeedbackModa = ({ id, title }) => {
   const [reating, setRating] = useState(0);
   const { user } = useAuth();
   const [date] = useState(new Date());
   const axiosSecure = useAxiosSecure();
+  // console.log(title);
   ////////////////////////////////////////////////
   // const assigneme create ===============
   const handleFeedbackSubmit = async (e) => {
@@ -26,6 +27,7 @@ const FeedbackModa = ({ id }) => {
         date: `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`,
         description,
         ratign: reating,
+        title: title,
       };
       const assignRes = await axiosSecure.post("/feedback", feedBackData);
       console.log(assignRes.data);

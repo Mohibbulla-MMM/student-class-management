@@ -10,7 +10,7 @@ const PopularClass = () => {
   if (isPending) {
     return <WaitPop />;
   }
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <Container>

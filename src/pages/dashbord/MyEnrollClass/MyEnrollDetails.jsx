@@ -45,7 +45,6 @@ const MyEnrollDetails = () => {
     }
   };
 
-
   return (
     <div>
       <Helmet>
@@ -62,7 +61,10 @@ const MyEnrollDetails = () => {
         >
           Feedback
         </button>
-        <FeedbackModa id={id} />
+        <FeedbackModa
+          id={id}
+          title={totalAssignment && totalAssignment?.[0]?.title}
+        />
       </div>
 
       {/* page title ======== */}
