@@ -2,11 +2,17 @@ import { FaCalendarDays, FaUsers } from "react-icons/fa6";
 import useSinggleClass from "../../../../hooks/useSinggleClass";
 import SectionTitle from "../../../../shared/SectionTitle/SectionTitle";
 import WaitPop from "../../../../shared/WaitPop";
-
 import { CgNotes } from "react-icons/cg";
+import useTeacherAssignId from "../../../../hooks/useTeacherAssignId";
+import useStudentAssignment from "../../../../hooks/useStudentAssignment";
+
 const ProgressSection = ({ id }) => {
   const [data, , isLoading] = useSinggleClass(id);
-  console.log(data);
+  const [totalAssignment] = useTeacherAssignId(id);
+  const [studentAssignment] = useStudentAssignment(id);
+  //   console.log(totalAssignment);
+  console.log(studentAssignment);
+  //   console.log(data);
   if (isLoading) {
     return <WaitPop />;
   }
@@ -32,7 +38,7 @@ const ProgressSection = ({ id }) => {
           </span>
           {/* title  */}
           <h1 className="  font-bold">
-            Totla Assignment: {data?.totalEnroll || 0}
+            Totla Assignment: {totalAssignment?.length || 0}
           </h1>
         </div>
 
@@ -43,7 +49,8 @@ const ProgressSection = ({ id }) => {
           </span>
           {/* title  */}
           <h1 className="  font-bold">
-            Submited Assignment: {data?.totalEnroll || 0}
+            Submited Assignment:{" "}
+            {(studentAssignment && studentAssignment?.length) || 0}
           </h1>
         </div>
       </div>
@@ -52,3 +59,4 @@ const ProgressSection = ({ id }) => {
 };
 
 export default ProgressSection;
+// assignment-category-7 problem-point:8

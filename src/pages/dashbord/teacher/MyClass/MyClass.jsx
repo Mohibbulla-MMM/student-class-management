@@ -2,10 +2,14 @@ import { Helmet } from "react-helmet-async";
 import useMyClass from "../../../../hooks/useMyClass";
 import SectionTitle from "../../../../shared/SectionTitle/SectionTitle";
 import MyClassCard from "./MyClassCard";
+import WaitPop from "../../../../shared/WaitPop";
 
 const MyClass = () => {
   const [myClasses, refetch, isLoading] = useMyClass();
   // console.log(myClasses);
+  if (isLoading) {
+    return <WaitPop />;
+  }
   return (
     <div className="">
       <Helmet>

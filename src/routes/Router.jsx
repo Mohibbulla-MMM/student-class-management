@@ -21,6 +21,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyEnrollClass from "../pages/dashbord/MyEnrollClass/MyEnrollClass";
 import MyClassUpdate from "../pages/dashbord/teacher/MyClass/MyClassUpdate";
 import MyClassSeeDetails from "../pages/dashbord/teacher/MyClass/MyClassSeeDetails";
+import MyEnrollDetails from "../pages/dashbord/MyEnrollClass/MyEnrollDetails";
 
 const Router = createBrowserRouter([
   {
@@ -94,6 +95,14 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyEnrollClass />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-enroll-class/:id",
+        element: (
+          <PrivateRoute>
+            <MyEnrollDetails />
           </PrivateRoute>
         ),
       },

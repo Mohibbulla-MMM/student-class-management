@@ -36,7 +36,7 @@ const MyEnrollCard = ({ item }) => {
       {/* button  */}
       <div>
         <Link
-          // to={`/my-class/${item?._id}`}
+          to={`/dashbord/my-enroll-class/${item?._id}`}
           className="btn btn-block rounded-none text-lg btn-ghost hover:bg-purple-800 bg-purple-200 hover:text-white"
         >
           Continue
