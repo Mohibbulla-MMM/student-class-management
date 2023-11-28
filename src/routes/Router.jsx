@@ -14,7 +14,6 @@ import Users from "../pages/dashbord/admin/Users/Users";
 import Allclass from "../pages/dashbord/admin/Allclass/Allclass";
 import MyClass from "../pages/dashbord/teacher/MyClass/MyClass";
 import AllClassesSingle from "../pages/AllClasses/AllClassesSingle";
-
 import axios from "axios";
 import Payment from "../pages/Payment";
 import PrivateRoute from "./PrivateRoute";
@@ -22,6 +21,8 @@ import MyEnrollClass from "../pages/dashbord/MyEnrollClass/MyEnrollClass";
 import MyClassUpdate from "../pages/dashbord/teacher/MyClass/MyClassUpdate";
 import MyClassSeeDetails from "../pages/dashbord/teacher/MyClass/MyClassSeeDetails";
 import MyEnrollDetails from "../pages/dashbord/MyEnrollClass/MyEnrollDetails";
+import AdminRoute from "./AdminRoute";
+import TeacherRoute from "./TeacherRoute";
 
 const Router = createBrowserRouter([
   {
@@ -109,9 +110,9 @@ const Router = createBrowserRouter([
       {
         path: "add-class",
         element: (
-          <PrivateRoute>
+          <TeacherRoute>
             <AddClass />
-          </PrivateRoute>
+          </TeacherRoute>
         ),
       },
       {
@@ -140,15 +141,27 @@ const Router = createBrowserRouter([
       },
       {
         path: "teacher-request",
-        element: <TeacherRequest />,
+        element: (
+          <AdminRoute>
+            <TeacherRequest />
+          </AdminRoute>
+        ),
       },
       {
         path: "users",
-        element: <Users />,
+        element: (
+          <AdminRoute>
+            <Users />
+          </AdminRoute>
+        ),
       },
       {
         path: "all-class",
-        element: <Allclass />,
+        element: (
+          <AdminRoute>
+            <Allclass />
+          </AdminRoute>
+        ),
       },
     ],
   },

@@ -33,7 +33,7 @@ const PopularClass = () => {
             {data &&
               data?.map((item) => (
                 <SwiperSlide key={item?._id}>
-                  <div className="flex justify-center items-center flex-col  mx-auto h-[300px]">
+                  <div className="flex justify-center items-center flex-col  mx-auto h-[300px] pb-6">
                     {/* banner part */}
                     <div className="flex justify-center items-center flex-col  mx-auto">
                       <img
@@ -58,6 +58,7 @@ const PopularClass = () => {
               ))}
           </Swiper>
         </section>
+        {/* sm device show  */}
         <section className="block lg:hidden">
           <div className="-mb-6">
             <SectionTitle
@@ -77,7 +78,7 @@ const PopularClass = () => {
             {data &&
               data?.map((item) => (
                 <SwiperSlide key={item?._id}>
-                  <div className="flex justify-center items-center flex-col  mx-auto h-[300px] sm:h-[400px]">
+                  <div className="flex justify-center items-center flex-col  mx-auto h-[300px] sm:h-[400px] pb-6">
                     {/* banner part */}
                     <div className="flex justify-center items-center flex-col  mx-auto">
                       <img

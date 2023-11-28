@@ -6,16 +6,16 @@ const useRoleChaker = () => {
   const { user, loading } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: info = "user" } = useQuery({
+  const { data: info = "user", isPending } = useQuery({
     enabled: !loading,
     queryKey: ["user-role-chaker", user && user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/user-role-chaker/${user?.email}`);
-      return res.data?.role || 'user';
+      return res.data?.role || "user";
     },
   });
 
-  return info;
+  return [info, isPending];
 };
 
 export default useRoleChaker;

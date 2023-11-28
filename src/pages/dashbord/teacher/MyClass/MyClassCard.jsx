@@ -28,18 +28,6 @@ const MyClassCard = ({ item, refetch }) => {
 
   return (
     <div className="rounded-xl overflow-hidden   bg-purple-50">
-      {/* 
-● Title
-● name(not editable)
-● email(not editable)
-● Price
-● Description
-● Image
-● status(initially pending)
-● Update button
-● Delete button
-● See details 
-*/}
       {/* banner */}
       <div
         style={{ backgroundImage: `url(${image})` }}

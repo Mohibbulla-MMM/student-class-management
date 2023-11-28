@@ -21,40 +21,72 @@ const WhoSupportMe = () => {
   if (isPending) {
     return <WaitPop />;
   }
-//   console.log(data);
+  //   console.log(data);
   return (
     <div>
       <Container>
         <SectionTitle title={"Who supports us?"} subTitle={"National Brand"} />
+     
+      
+        {/* sm device hidden  */}
+        <div className="hidden sm:block">
+          <Swiper
+            pagination={{
+              dynamicBullets: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+            // modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={3}
+            // navigation
+            // pagination={{ clickable: true }}
+            // scrollbar={{ draggable: true }}
+          >
+            {data &&
+              data?.map((item) => (
+                <SwiperSlide key={item?.id}>
+                  <div className="flex-1 flex flex-col  justify-center items-center p-4 shadow-xl mb-8  rounded-xl">
+                    <figure>
+                      <img  className="w-52 h-10 " src={item?.image} alt="" />
+                    </figure>
+                     
+                    <p className="text-gray-500">{item?.description}</p>
+                  </div>
+                </SwiperSlide>
+              ))}
+          </Swiper>
+        </div>
 
-        <Swiper
-          pagination={{
-            dynamicBullets: true,
-          }}
-          modules={[Pagination]}
-          className="mySwiper"
-        >
-          {data &&
-            data?.map((item) => (
-              <SwiperSlide key={item?.id}>
-                <div className="flex-1   flex justify-center items-center">
-                  <figure>
-                    <img className="w-52" src={item?.image} alt="" />
-                  </figure>
-                </div>
-              </SwiperSlide>
-            ))}
-        </Swiper>
-        {/* <section className="flex justify-center items-center gap-2 flex-wrap">
-          {data &&
-            data?.map((item) => (
-              <div key={item?.id} className="flex-1 min-w-[150px]">
-                <figure>
-                  <img className="w-52" src={item?.image} alt="" />
-                </figure>
-              </div>
-            ))}
-        </section> */}
+          {/* sm device show */}
+        <div className="block sm:hidden">
+          <Swiper
+            pagination={{
+              dynamicBullets: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+            // modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={1}
+            // navigation
+            // pagination={{ clickable: true }}
+            // scrollbar={{ draggable: true }}
+          >
+            {data &&
+              data?.map((item) => (
+                <SwiperSlide key={item?.id}>
+                  <div className="flex-1 flex flex-col  justify-center items-center p-4 shadow-xl mb-8  rounded-xl">
+                    <figure>
+                      <img  className="w-52 h-10 " src={item?.image} alt="" />
+                    </figure>
+                     
+                    <p className="text-gray-500">{item?.description}</p>
+                  </div>
+                </SwiperSlide>
+              ))}
+          </Swiper>
+        </div>
       </Container>
     </div>
   );

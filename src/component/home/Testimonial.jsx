@@ -43,7 +43,7 @@ const Testimonial = () => {
                           style={{
                             borderRadius: "150px 0 150px 150px ",
                           }}
-                          className="w-60 h-60 block object-cover "
+                          className="sm:w-60 sm:h-60 w-40 h-40 block object-cover "
                           src={item?.avater}
                           alt=""
                         />
@@ -58,7 +58,7 @@ const Testimonial = () => {
                       <h1 className="font-bold">{item?.title}</h1>
                       <p
                         title={`${item?.description}`}
-                        className="h-[80px] overflow-hidden text-sm text-gray-500 "
+                        className="h-[80px] sm:h-[100px] overflow-hidden text-sm text-gray-500 "
                       >
                         {item?.description}
                       </p>
@@ -67,7 +67,7 @@ const Testimonial = () => {
                         <FaQuoteLeft />
                       </p> */}
 
-                      <div className="   font-bold pt-10 ">
+                      <div className="   font-bold sm:pt-10 pt-3">
                         {/*  name */}
                         <p className="text-xl uppercase font-bold  ">
                           {item?.name}

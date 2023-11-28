@@ -8,10 +8,10 @@ import BecomeInstructor from "../BecomeInstructor/BecomeInstructor";
 const Home = () => {
   return (
     <div className="space-y-16">
-      <BecomeInstructor />
       <Banner />
       <Aboute />
       <PopularClass />
+      <BecomeInstructor />
       <WhoSupportMe />
       <Testimonial />
     </div>
