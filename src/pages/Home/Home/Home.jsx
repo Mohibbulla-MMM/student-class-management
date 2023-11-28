@@ -1,7 +1,11 @@
+import PopularClass from "../../../component/home/PopularClass";
+import Banner from "../../../component/home/banner";
+
 const Home = () => {
   return (
     <div>
-      <p>home</p>
+      <Banner />
+      <PopularClass />
     </div>
   );
 };

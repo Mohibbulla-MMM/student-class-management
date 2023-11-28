@@ -7,29 +7,33 @@ import toast, { Toaster } from "react-hot-toast";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
+import FeedbackModa from "./FeedbackModa";
 
 const MyEnrollDetails = () => {
   const [date] = useState(new Date());
   const { user } = useAuth();
   const { id } = useParams();
   const [totalAssignment, , isLoading] = useTeacherAssignId(id);
-  console.log(totalAssignment);
+  // console.log(totalAssignment);
   const axiosSecure = useAxiosSecure();
+
   if (isLoading) {
     return <WaitPop />;
   }
   //   console.log(id);
-  // handleAssignSubmit ==============
-  const handleAssignSubmit = async (id) => {
+  // handle Assign Submit ==============
+  const handleAssignmentSubmit = async (id) => {
     const assignmentData = {
       assignmentId: id,
       email: user?.email,
+      name: user?.displayName,
+      avater: user?.photoURL,
       date: `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`,
     };
     console.log(assignmentData);
     // console.log(id);
     try {
-      //   console.log(id);
+      // console.log(id);
       const res = await axiosSecure.post(`/u-assignment`, assignmentData);
       console.log(res.data);
       if (res.data?.insertedId) {
@@ -41,16 +45,27 @@ const MyEnrollDetails = () => {
     }
   };
 
+
   return (
     <div>
-      {/* Title
-● Description
-● Deadline
-● Submit  */}
       <Helmet>
         <title>My enroll class detials | EasyteacH</title>
       </Helmet>
 
+      {/* ======= feedback button ========== */}
+      <div className="flex justify-center mt-3">
+        <button
+          onClick={async () =>
+            await document.getElementById("my_class_feedback_btn").showModal()
+          }
+          className="btn  bg-purple-800 border-none  rounded text-white text-xl "
+        >
+          Feedback
+        </button>
+        <FeedbackModa id={id} />
+      </div>
+
+      {/* page title ======== */}
       <SectionTitle title={"My assignment"} subTitle={""} />
 
       <div className="">
@@ -89,7 +104,9 @@ const MyEnrollDetails = () => {
                     <td>
                       <button
                         // disabled={item?.role === "admin"}
-                        onClick={() => handleAssignSubmit(item?.assignmentId)}
+                        onClick={() =>
+                          handleAssignmentSubmit(item?.assignmentId)
+                        }
                         className="btn btn-sm bg-purple-800 border-none  rounded    text-white "
                       >
                         Submiit
@@ -102,6 +119,7 @@ const MyEnrollDetails = () => {
         </div>
         <Toaster position="top-right" reverseOrder={true} />
       </div>
+      {/* -========= feedback modal =========== */}
     </div>
   );
 };

@@ -54,6 +54,7 @@ const ProgressSection = ({ id }) => {
           </h1>
         </div>
       </div>
+      {/* ================  */}
     </div>
   );
 };
