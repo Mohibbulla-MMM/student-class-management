@@ -10,6 +10,7 @@ const useMyClass = () => {
     data: myClass = [],
     refetch,
     isLoading,
+    isError,
   } = useQuery({
     enabled: !loading,
     queryKey: ["my-porfile", user && user?.email],
@@ -18,7 +19,7 @@ const useMyClass = () => {
       return res.data;
     },
   });
-  if (isLoading) {
+  if ((isLoading || loading, isError)) {
     return <WaitPop />;
   }
   //   console.log(myClass);

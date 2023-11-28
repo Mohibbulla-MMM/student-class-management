@@ -10,8 +10,13 @@ const useAllClass = () => {
       return res.data;
     },
   });
+  // classes.filter((item) => {
+  //   console.log(item);
+  // });
 
   return [classes, refetch];
 };
 
 export default useAllClass;
+// find = [{},{},{}] || []
+// findOne = {} , {data} , {}

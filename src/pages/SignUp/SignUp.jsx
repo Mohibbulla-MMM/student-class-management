@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import Container from "../../utils/Container";
@@ -28,17 +28,20 @@ const SignUp = () => {
   const { createUserWithEmail, userProfileUpdate } = useAuth();
 
   const [passwordShow, setPasswordShow] = useState(false);
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || "/";
   // const axiosBaseUrl = useAxios();
   // const navigate = useNavigate();
   // const location = useLocation();
 
   const handleSignUp = async (data) => {
     setLoading(true);
-    const userInfo = {
-      name: data.name,
-      email: data.email,
-      image: data.image[0],
-    };
+    // const userInfo = {
+    //   name: data.name,
+    //   email: data.email,
+    //   image: data.image[0],
+    // };
 
     const email = data.email;
     const password = data.password;
@@ -58,7 +61,7 @@ const SignUp = () => {
             toast.success("Sign up success");
           });
         });
-
+        navigate(from, { replace: true });
         // console.log(res);
         const userData = {
           name: data.name,
@@ -71,6 +74,9 @@ const SignUp = () => {
         const userSaveRes = await useUserSave(userData);
         console.log(userSaveRes);
       }
+
+    
+    
     } catch (err) {
       toast.error(err.message);
       console.log(err);

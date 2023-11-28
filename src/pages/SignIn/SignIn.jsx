@@ -15,7 +15,7 @@ const SignIn = () => {
   // const axiosBaseUrl = useAxios();
   const navigate = useNavigate();
   const location = useLocation();
-
+  const from = location.state?.from?.pathname || "/";
   const handleLoginForm = (e) => {
     const loginTostId = toast.loading("Please wait");
     e.preventDefault();
@@ -31,6 +31,7 @@ const SignIn = () => {
         console.log(user);
         toast.success("Login Success", { id: loginTostId });
         navigate(location?.state ? location?.state : "/");
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err);
