@@ -9,7 +9,7 @@ const useWhoSupportMe = () => {
     refetch,
     isPending,
   } = useQuery({
-    queryKey: ["all-classes"],
+    queryKey: ["who-suppport-me-national-brand"],
     queryFn: async () => {
       const res = await axios.get(
         "https://raw.githubusercontent.com/Mohibbulla-MMM/all-json-file/main/who-support-me.json"

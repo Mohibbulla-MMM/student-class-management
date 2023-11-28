@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
 import useAuth from "./useAuth";
+import WaitPop from "../shared/WaitPop";
 
 const useMyClass = () => {
   const { user, loading } = useAuth();
@@ -17,7 +18,10 @@ const useMyClass = () => {
       return res.data;
     },
   });
-//   console.log(myClass);
+  if (isLoading) {
+    return <WaitPop />;
+  }
+  //   console.log(myClass);
   return [myClass, refetch, isLoading];
 };
 

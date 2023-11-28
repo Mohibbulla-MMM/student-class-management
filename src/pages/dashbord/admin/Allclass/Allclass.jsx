@@ -24,8 +24,8 @@ const Allclass = () => {
       // console.log(res.data);
       if (res.data?.modifiedCount) {
         toast.success("Class approved");
+        refetch();
       }
-      refetch();
     } catch (err) {
       console.log(err);
       toast.error("Class approved failed");
@@ -46,8 +46,8 @@ const Allclass = () => {
       // console.log(res.data);
       if (res.data?.modifiedCount) {
         toast.success("Class rejected");
+        refetch();
       }
-      refetch();
     } catch (err) {
       console.log(err);
       toast.error("Rejected failed");
@@ -124,7 +124,10 @@ const Allclass = () => {
                     <span className="flex items-center justify-center gap-1 flex-col">
                       {/* approve button */}
                       <button
-                        disabled={item?.status === "approved"}
+                        disabled={
+                          item?.status === "rejected" ||
+                          item?.status === "approved"
+                        }
                         onClick={() => handleClassApprovePopup(item)}
                         className="btn btn-sm bg-purple-800 border-none  rounded    text-white  w-28 "
                       >
@@ -133,20 +136,23 @@ const Allclass = () => {
 
                       {/* reject button  */}
                       <button
-                        disabled={item?.status === "rejected"}
+                        disabled={
+                          item?.status === "rejected" ||
+                          item?.status === "approved"
+                        }
                         onClick={() => handleClassRejectPopup(item)}
-                        className="btn btn-sm bg-yellow-600 border-none  rounded    text-white  w-28 "
+                        className="btn btn-sm bg-purple-800  border-none  rounded    text-white  w-28 "
                       >
                         Reject
                       </button>
                       {/* parmanently delete button  */}
-                      <button className="btn btn-sm border-none  rounded   text-white w-28 bg-red-800 ">
+                      <button className="btn btn-sm border-none  rounded   text-white w-28 bg-purple-800  ">
                         Delete
                       </button>
                       {/* see progress buton  */}
                       <button
                         disabled={item?.status !== "approved"}
-                        className="btn btn-sm bg-green-800 border-none  rounded    text-white  w-28 "
+                        className="btn btn-sm bg-purple-800  border-none  rounded    text-white  w-28 "
                       >
                         See Progress
                       </button>

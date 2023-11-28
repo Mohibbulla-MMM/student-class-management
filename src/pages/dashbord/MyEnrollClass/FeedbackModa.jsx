@@ -10,7 +10,7 @@ const FeedbackModa = ({ id, title }) => {
   const { user } = useAuth();
   const [date] = useState(new Date());
   const axiosSecure = useAxiosSecure();
-  // console.log(title);
+  console.log(title);
   ////////////////////////////////////////////////
   // const assigneme create ===============
   const handleFeedbackSubmit = async (e) => {
@@ -64,11 +64,12 @@ const FeedbackModa = ({ id, title }) => {
             <div className="space-y-4">
               {/* description  */}
               <textarea
+                required
                 className="border-2 px-4 p-1 bg-white text-black text-lg w-full  focus:border-purple-600  outline-none rounded-md"
                 placeholder="Type hare"
                 name="description"
                 type="text"
-                required
+                
               />
               {/* react reatin component  */}
               <div className=" flex  items-center gap-1 text-2xl font-bold ">

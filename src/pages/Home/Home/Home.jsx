@@ -1,3 +1,4 @@
+import Aboute from "../../../component/About/Aboute";
 import PopularClass from "../../../component/home/PopularClass";
 import Testimonial from "../../../component/home/Testimonial";
 import WhoSupportMe from "../../../component/home/WhoSupportMe";
@@ -9,7 +10,8 @@ const Home = () => {
       <Banner />
       <PopularClass />
       <WhoSupportMe />
-      <Testimonial/>
+      <Testimonial />
+      <Aboute />
     </div>
   );
 };

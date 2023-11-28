@@ -2,7 +2,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import "@smastrom/react-rating/style.css";
-import { FaQuoteLeft } from "react-icons/fa";
+// import { FaQuoteLeft } from "react-icons/fa"; 
 import SectionTitle from "../../shared/SectionTitle/SectionTitle";
 import { Navigation } from "swiper/modules";
 import ReactStars from "react-rating-stars-component";
@@ -16,8 +16,8 @@ const Testimonial = () => {
     <div>
       <section className="my-10">
         <SectionTitle
-          heading={"textimonials"}
-          subHeading={"What Ou Clients Say"}
+          title={"TEstimonial"}
+          subTitle={"What our student says?"}
         />
 
         <section className="mt-5">
@@ -35,31 +35,61 @@ const Testimonial = () => {
             {feedback &&
               feedback?.map((item, i) => (
                 <SwiperSlide key={i}>
-                  <div className="text-center space-y-2 max-w-2xl mx-auto">
-                    <div className=" mx-auto flex justify-center ">
-                      <ReactStars
-                        count={5}
-                        // onChange={ratingChanged}
-                        value={item?.ratign}        
-                        edit={false}                
-                        size={36}
-                        isHalf={true}
-                        emptyIcon={<i className="far fa-star"></i>}
-                        halfIcon={<i className="fa fa-star-half-alt"></i>}
-                        fullIcon={<i className="fa fa-star"></i>}
-                        activeColor="#ffd700"
-                      />
+                  <div className="   max-w-2xl mx-auto flex gap-3 items-center ">
+                    {/* abater  */}
+                    <div className="flex-1 flex justify-end">
+                      <figure>
+                        <img
+                          style={{
+                            borderRadius: "150px 0 150px 150px ",
+                          }}
+                          className="w-60 h-60 block object-cover "
+                          src={item?.avater}
+                          alt=""
+                        />
+                      </figure>
+
+                      {/* <p>{`${item?.avater}`}</p> */}
                     </div>
 
-                    <p className="flex justify-center text-5xl ">
-                      <FaQuoteLeft />
-                    </p>
+                    {/* others informatio  */}
+                    <div className="space-y-1 flex-1">
+                      {/* feedback text  */}
+                      <h1 className="font-bold">{item?.title}</h1>
+                      <p
+                        title={`${item?.description}`}
+                        className="h-[80px] overflow-hidden text-sm text-gray-500 "
+                      >
+                        {item?.description}
+                      </p>
 
-                    <p className="mx-10">{item?.details}</p>
+                      {/* <p className="flex justify-center text-5xl ">
+                        <FaQuoteLeft />
+                      </p> */}
 
-                    <p className="text-xl uppercase text-yellow-600 ">
-                      {item?.name}
-                    </p>
+                      <div className="   font-bold pt-10 ">
+                        {/*  name */}
+                        <p className="text-xl uppercase font-bold  ">
+                          {item?.name}
+                        </p>
+                        {/* rating  */}
+                        <div className="text-sm flex gap-2 items-center ">
+                          <span>Rating: </span>
+                          <ReactStars
+                            count={5}
+                            // onChange={ratingChanged}
+                            value={item?.ratign}
+                            edit={false}
+                            size={20}
+                            isHalf={true}
+                            emptyIcon={<i className="far fa-star"></i>}
+                            halfIcon={<i className="fa fa-star-half-alt"></i>}
+                            fullIcon={<i className="fa fa-star"></i>}
+                            activeColor="#ffd700"
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </SwiperSlide>
               ))}

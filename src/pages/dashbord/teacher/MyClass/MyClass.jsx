@@ -22,6 +22,7 @@ const MyClass = () => {
       {/* my class card */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
         {myClasses &&
+          myClasses?.length > 0 &&
           myClasses?.map((item) => (
             <MyClassCard key={item?._id} item={item} refetch={refetch} />
           ))}

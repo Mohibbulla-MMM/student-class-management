@@ -147,13 +147,19 @@ const TeacherRequest = () => {
                       <span className="flex  gap-1 flex-col">
                         <button
                           onClick={() => handleApprovePop(item)}
-                          disabled={item?.status === "approved"}
+                          disabled={
+                            item?.status === "rejected" ||
+                            item?.status === "approved"
+                          }
                           className="btn btn-sm bg-purple-800 border-none  rounded    text-white  w-32 "
                         >
                           Approve
                         </button>
                         <button
-                          disabled={item?.status === "rejected"}
+                          disabled={
+                            item?.status === "rejected" ||
+                            item?.status === "approved"
+                          }
                           onClick={() => handleRejectedPop(item)}
                           className="btn btn-sm bg-purple-800 border-none  rounded    text-white  w-32 "
                         >

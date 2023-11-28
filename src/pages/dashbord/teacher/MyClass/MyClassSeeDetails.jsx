@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const MyClassSeeDetails = () => {
   const { id } = useParams();
-  
+
   const axiosSecure = useAxiosSecure();
   // const assigneme create ===============
   const handleAssignmentCreate = async (e) => {
@@ -75,6 +75,7 @@ const MyClassSeeDetails = () => {
             <div className="space-y-4">
               {/* title  */}
               <input
+                required
                 className="border-2 px-4 p-1 bg-white text-black text-lg w-full  focus:border-purple-600  outline-none rounded-md"
                 placeholder="Enter title"
                 name="title"
@@ -82,6 +83,7 @@ const MyClassSeeDetails = () => {
               />
               {/* qustion  */}
               <input
+                required
                 className="border-2 px-4 p-1 bg-white text-black text-lg w-full  focus:border-purple-600  outline-none rounded-md"
                 placeholder="Enter qustion"
                 name="qustion"
@@ -89,6 +91,7 @@ const MyClassSeeDetails = () => {
               />
               {/* dedline  */}
               <input
+                required
                 style={{ colorScheme: "white" }}
                 className="border-2 px-4 p-1 bg-white text-black text-lg w-full  focus:border-purple-600  outline-none rounded-md"
                 placeholder="Enter dedline"
@@ -98,6 +101,7 @@ const MyClassSeeDetails = () => {
 
               {/* description  */}
               <textarea
+                required
                 className="border-2 px-4 p-1 bg-white text-black text-lg w-full  focus:border-purple-600  outline-none rounded-md"
                 placeholder="Enter description"
                 name="description"
