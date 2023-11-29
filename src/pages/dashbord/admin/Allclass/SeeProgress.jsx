@@ -38,7 +38,7 @@ const SeeProgress = () => {
             {/* row 1 */}
             {feedBack &&
               feedBack?.map((item, i) => (
-                <tr key={i}>
+                <tr key={item?._id}>
                   <th>{i + 1}</th>
                   {/* image  */}
                   <td className=" w-32">

@@ -87,7 +87,7 @@ const MyEnrollDetails = () => {
               {/* row 1 */}
               {totalAssignment &&
                 totalAssignment?.map((item, i) => (
-                  <tr key={i}>
+                  <tr key={item?._id}>
                     <th>{i + 1}</th>
 
                     {/* name and description  */}

@@ -5,6 +5,7 @@ import Testimonial from "../../../component/home/Testimonial";
 import WhoSupportMe from "../../../component/home/WhoSupportMe";
 import Banner from "../../../component/home/banner";
 import BecomeInstructor from "../BecomeInstructor/BecomeInstructor";
+import OurTeachers from "../OurTeachers/OurTeachers";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <PopularClass />
       <BecomeInstructor />
       <WhoSupportMe />
+      <OurTeachers /> 
       <Testimonial />
     </div>
   );

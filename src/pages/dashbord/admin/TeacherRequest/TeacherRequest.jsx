@@ -99,7 +99,7 @@ const TeacherRequest = () => {
               {/* row 1 */}
               {users &&
                 users?.map((item, i) => (
-                  <tr key={i}>
+                  <tr key={item?._id}>
                     <th>{i + 1}</th>
                     {/* user image */}
                     <td className="">

@@ -33,8 +33,8 @@ const Testimonial = () => {
             // onSlideChange={() => console.log("slide change")}
           >
             {feedback &&
-              feedback?.map((item, i) => (
-                <SwiperSlide key={i}>
+              feedback?.map((item, ) => (
+                <SwiperSlide key={item?._id}>
                   <div className="   max-w-2xl mx-auto flex gap-3 items-center ">
                     {/* abater  */}
                     <div className="flex-1 flex justify-end">
