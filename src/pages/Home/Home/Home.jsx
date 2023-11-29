@@ -6,6 +6,7 @@ import WhoSupportMe from "../../../component/home/WhoSupportMe";
 import Banner from "../../../component/home/banner";
 import BecomeInstructor from "../BecomeInstructor/BecomeInstructor";
 import OurTeachers from "../OurTeachers/OurTeachers";
+import OurServiceCategory from "../OurServiceCategory/OurServiceCategory";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       </Helmet>
       <Banner />
       <Aboute />
+      <OurServiceCategory/>
       <PopularClass />
       <BecomeInstructor />
       <WhoSupportMe />
