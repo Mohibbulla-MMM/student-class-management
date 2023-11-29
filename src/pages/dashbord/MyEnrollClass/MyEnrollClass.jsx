@@ -20,8 +20,11 @@ const MyEnrollClass = () => {
         {userData && userData?.length > 0 ? (
           userData?.map((item) => <MyEnrollCard key={item?._id} item={item} />)
         ) : (
-          <div className="w-full h-[50vh] flex flex-col justify-center items-center text-xl font-bold">
-            You are not class puches
+          <div className="w-full col-span-2 h-[50vh] flex flex-col justify-center items-center text-2xl font-bold text-center uppercase">
+            <h1>You have not enrolled in any classes yet.</h1>
+            <p className="text-sm font-semibold capitalize">
+              Enroll quickly, our discounts are ongoing
+            </p>
           </div>
         )}
       </div>

@@ -7,11 +7,16 @@ const BecomeInstructor = () => {
       <Container>
         <div className="flex flex-col-reverse md:flex-row gap-6 items-center justify-center">
           {/* col two  */}
-          <div className="flex-1 ">
+          <div
+          style={{
+            backgroundImage:`url(${"https://safesyntax.com/wp-content/uploads/2021/06/safesyntax-bg.png"})`
+          }}
+          className="flex-1 bg-right bg-cover w-full flex ">
             <figure>
               <img 
               className="block rounded-lg"
-                src="https://hrsoftbd.com/assets/servicePhoto/_20210713153659.jpg"
+                // src="https://hrsoftbd.com/assets/servicePhoto/_20210713153659.jpg"
+                src="https://safesyntax.com/wp-content/uploads/2021/06/bg.png"
                 alt=""
               />
             </figure>

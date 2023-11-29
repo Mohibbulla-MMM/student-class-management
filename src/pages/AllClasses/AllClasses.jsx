@@ -25,7 +25,7 @@ const AllClasses = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:7000/classes/all?page=${currentPage}&size=${parPageValue}`
+      `${import.meta.env.VITE_SERVER_BASE_URL}/classes/all?page=${currentPage}&size=${parPageValue}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -81,8 +81,8 @@ const AllClasses = () => {
         </div>
       </Container>
       <Container>
-        <div className="flex p-4 shadow-xl mt-8 rounded-md justify-between items-center bg-purple-200">
-          <p className="pagination-title font-semibold ">
+        <div className="flex p-4 shadow-xl mt-8 rounded-md sm:justify-between justify-center items-center bg-purple-200">
+          <p className="pagination-title font-semibold hidden sm:block">
            Shoing: {0}-{parPageValue}/{counter}
           </p>
           <div className="flex gap-1 items-center">
@@ -98,7 +98,7 @@ const AllClasses = () => {
                 key={page}
                 className={
                   currentPage === page
-                    ? "btn btn-sm btn-circle border-none text-white"
+                    ? "btn btn-sm btn-circle border-none text-white bg-black"
                     : "btn btn-sm btn-circle bg-white border-none text-black hover:text-white "
                 }
               >

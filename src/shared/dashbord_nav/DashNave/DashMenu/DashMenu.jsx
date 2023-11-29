@@ -1,10 +1,11 @@
 import { FaHome, FaSeedling, FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { MdGroups } from "react-icons/md";
-import { FaBook, FaHouseFlag } from "react-icons/fa6";
+import { FaBook } from "react-icons/fa6";
 import { RiGitPullRequestFill } from "react-icons/ri";
 import useRoleChaker from "../../../../hooks/useRoleChaker";
-
+import { ImStatsDots } from "react-icons/im";
+import { MdRoundaboutLeft } from "react-icons/md";
 const DashMenu = () => {
   // const roolChaker = "teacher";
   const [roolChaker] = useRoleChaker();
@@ -83,6 +84,7 @@ const DashMenu = () => {
       {/* user rool menu ------------------ */}
       {roolChaker === "user" && (
         <>
+          {/* prifile */}
           <NavLink
             to="/dashbord"
             className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
@@ -90,6 +92,16 @@ const DashMenu = () => {
             <FaUser />
             Profile
           </NavLink>
+          {/* analitix */}
+          <NavLink
+            to="/dashbord/analitics"
+            className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
+          >
+            <ImStatsDots />
+            Analitics
+          </NavLink>
+
+          {/* my class */}
           <NavLink
             to="/dashbord/my-enroll-class"
             className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
@@ -105,7 +117,7 @@ const DashMenu = () => {
         </div>
         <NavLink
           to="/"
-          className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
+          className={`flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200`}
         >
           <FaHome />
           Home
@@ -133,7 +145,7 @@ const DashMenu = () => {
           // to="/teach-on-easy"
           className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
         >
-          <FaHouseFlag />
+          <MdRoundaboutLeft />
           Aboute
         </NavLink>
       </>

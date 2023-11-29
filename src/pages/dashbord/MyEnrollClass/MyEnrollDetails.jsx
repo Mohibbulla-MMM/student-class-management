@@ -54,6 +54,7 @@ const MyEnrollDetails = () => {
       {/* ======= feedback button ========== */}
       <div className="flex justify-center mt-3">
         <button
+          disabled={totalAssignment && totalAssignment?.length === 0}
           onClick={async () =>
             await document.getElementById("my_class_feedback_btn").showModal()
           }
@@ -118,6 +119,16 @@ const MyEnrollDetails = () => {
                 ))}
             </tbody>
           </table>
+          {totalAssignment && totalAssignment?.length === 0 ? (
+            <div className="w-full col-span-2 h-[50vh] flex flex-col justify-center items-center text-2xl font-bold text-center uppercase">
+              <h1>No assignments have been added yet. Practice well.</h1>
+              <p className="text-sm font-semibold capitalize">
+                The assignment will come very soon.
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <Toaster position="top-right" reverseOrder={true} />
       </div>

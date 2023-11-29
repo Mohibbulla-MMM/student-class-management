@@ -38,7 +38,7 @@ const Profile = () => {
   };
   // const handle
   return (
-    <div>
+    <div className="bg-purple-100 -mt-20 pt-10 lg:pt-20 min-h-screen mb-0 pb-10 lg:20">
       <Helmet>
         <title>My Profile | EasyteacH</title>
       </Helmet>
@@ -48,8 +48,8 @@ const Profile = () => {
       />
       {/* user content  */}
       <form onSubmit={handleUpdateProfile}>
-        <div className="bg-purple-100 rounded-xl p-6 max-w-xl mx-auto mb-6">
-          <div className="flex  flex-col gap-6 py-8 ">
+        <div className=" rounded-xl p-6 max-w-3xl mx-auto mb-6">
+          <div className="flex flex-col sm:flex-row   sm:justify-normal gap-6 pb-4 ">
             {/* user image */}
             <div className=" space-y-3 ">
               <figure>
@@ -72,7 +72,7 @@ const Profile = () => {
             <div className="flex-1 space-y-4 font-semibold">
               {/* id */}
               <div>
-                <p>
+                <p className="text-sm">
                   Your Id:{" "}
                   {edit && (
                     <span className="text-gray-500">
@@ -91,7 +91,7 @@ const Profile = () => {
               </div>
               {/* id */}
               <div>
-                <p>
+                <p className="text-sm">
                   Role:{" "}
                   {edit && (
                     <span className="text-gray-500">
@@ -105,13 +105,13 @@ const Profile = () => {
                     edit &&
                     "border-2 border-purple-700 block w-full px-3 p-1 rounded bg-white"
                   }`}
-                  defaultValue={userInfo && userInfo?.role}
+                  defaultValue={(userInfo && userInfo?.role) || "Student"}
                 />
               </div>
 
               {/* name */}
               <div>
-                <p>
+                <p className="text-sm">
                   Full Name:{" "}
                   {edit && (
                     <span className="text-gray-500">
@@ -133,7 +133,7 @@ const Profile = () => {
 
               {/* email */}
               <div>
-                <p>
+                <p className="text-sm">
                   Email:{" "}
                   {edit && (
                     <span className="text-gray-500">
@@ -153,7 +153,7 @@ const Profile = () => {
 
               {/* Phone number */}
               <div>
-                <p>Phone Number: </p>
+                <p className="text-sm">Phone Number: </p>
                 <input
                   className={`font-bold bg-purple-100 text-lg outline-none  ${
                     edit &&

@@ -24,6 +24,7 @@ import MyEnrollDetails from "../pages/dashbord/MyEnrollClass/MyEnrollDetails";
 import AdminRoute from "./AdminRoute";
 import TeacherRoute from "./TeacherRoute";
 import SeeProgress from "../pages/dashbord/admin/Allclass/SeeProgress";
+import Analitics from "../pages/dashbord/Analitics/Analitics";
 
 const Router = createBrowserRouter([
   {
@@ -98,6 +99,14 @@ const Router = createBrowserRouter([
           <PrivateRoute>
             <MyEnrollClass />
           </PrivateRoute>
+        ),
+      },
+      {
+        path: "analitics",
+        element: (
+            <Analitics />
+          // <PrivateRoute>
+          // </PrivateRoute>
         ),
       },
       {

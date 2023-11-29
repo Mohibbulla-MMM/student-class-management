@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { ImSpinner9 } from "react-icons/im";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ data }) => {
   const [date] = useState(new Date());
@@ -18,6 +19,7 @@ const CheckoutForm = ({ data }) => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate()
   //   const navigate = useNavigate();
 
   const totalPrice = data.price;
@@ -97,7 +99,8 @@ const CheckoutForm = ({ data }) => {
         // navigate('/dashbord/payment_history');
       }
       await axiosSecure.patch("/classes", data);
-      console.log("payment save", res);
+      navigate('/dashbord/my-enroll-class')
+      // console.log("payment save", res);
     } catch (err) {
       console.log(err);
       setLoading(false);
