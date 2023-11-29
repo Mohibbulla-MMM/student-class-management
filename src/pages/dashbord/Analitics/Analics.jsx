@@ -6,7 +6,7 @@ const Analics = () => {
   return (
     <div className="grid sm:grid-cols-4 grid-cols-2 gap-4 py-4">
       {/* total cost   */}
-      <div className="flex gap-2 justify-center items-center p-4 rounded bg-purple-200">
+      <div className="flex gap-2 justify-center items-center p-2 rounded bg-purple-100 shadow-xl ">
         <figure>
           <img
             src="https://preschool.dreamstechnologies.com/template/assets/img/icons/teacher-icon-01.svg"
@@ -20,7 +20,7 @@ const Analics = () => {
       </div>
 
       {/* total class  */}
-      <div className="flex gap-2 justify-center items-center p-4 rounded bg-purple-200">
+      <div className="flex gap-2 justify-center items-center p-2 rounded bg-purple-100 shadow-xl ">
         <figure>
           <img
             src="https://preschool.dreamstechnologies.com/template/assets/img/icons/teacher-icon-02.svg"
@@ -37,7 +37,7 @@ const Analics = () => {
       </div>
 
       {/* you feedback  */}
-      <div className="flex gap-2 justify-center items-center p-4 rounded bg-purple-200">
+      <div className="flex gap-2 justify-center items-center p-2 rounded bg-purple-100 shadow-xl ">
         <figure>
           <img
             src="https://preschool.dreamstechnologies.com/template/assets/img/icons/student-icon-01.svg"
@@ -51,7 +51,7 @@ const Analics = () => {
       </div>
 
       {/* bonus  */}
-      <div className="flex gap-2 justify-center items-center p-4 rounded bg-purple-200">
+      <div className="flex gap-2 justify-center items-center p-2 rounded bg-purple-100 shadow-xl ">
         <figure>
           <img
             src="https://preschool.dreamstechnologies.com/template/assets/img/icons/student-icon-02.svg"
