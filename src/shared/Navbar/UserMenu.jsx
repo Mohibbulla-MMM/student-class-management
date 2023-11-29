@@ -8,7 +8,7 @@ const UserMenu = () => {
   return (
     <div className="relative">
       <div>
-        {user && user?.photoURL ? (
+        {user ? (
           <figure onClick={() => setMenuShow(!menuShow)}>
             <img
               src={user?.photoURL}
@@ -29,7 +29,9 @@ const UserMenu = () => {
         <NavLink className="p-1 px-3 hover:bg-purple-200  ">
           {user && user?.displayName}
         </NavLink>
-        <NavLink to='/dashbord' className="p-1 px-3 hover:bg-purple-200  ">Dashbord</NavLink>
+        <NavLink to="/dashbord" className="p-1 px-3 hover:bg-purple-200  ">
+          Dashbord
+        </NavLink>
         <div
           onClick={() => logOut()}
           className="p-1 px-3 hover:bg-purple-200  "

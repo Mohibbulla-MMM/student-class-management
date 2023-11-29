@@ -7,9 +7,9 @@ const Aboute = () => {
   const totalEnroll = useAbout();
   const totalUser = useTotalUser();
   const totalClass = useTotalClass();
-  console.log(totalEnroll);
-  console.log(totalUser);
-  console.log(totalClass);
+  // console.log(totalEnroll);
+  // console.log(totalUser);
+  // console.log(totalClass);
   // const []
   return (
     <div>

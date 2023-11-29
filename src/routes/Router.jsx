@@ -23,6 +23,7 @@ import MyClassSeeDetails from "../pages/dashbord/teacher/MyClass/MyClassSeeDetai
 import MyEnrollDetails from "../pages/dashbord/MyEnrollClass/MyEnrollDetails";
 import AdminRoute from "./AdminRoute";
 import TeacherRoute from "./TeacherRoute";
+import SeeProgress from "../pages/dashbord/admin/Allclass/SeeProgress";
 
 const Router = createBrowserRouter([
   {
@@ -160,6 +161,14 @@ const Router = createBrowserRouter([
         element: (
           <AdminRoute>
             <Allclass />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "all-class/:id",
+        element: (
+          <AdminRoute>
+            <SeeProgress />
           </AdminRoute>
         ),
       },

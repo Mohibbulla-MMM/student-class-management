@@ -45,7 +45,7 @@ const SignIn = () => {
       className="bg-cover bg-white     min-h-screen py-16 text-gray-800 z-20"
     >
       <Helmet>
-        <title>Login || EasyTeach</title>
+        <title>Sign In || EasyTeach</title>
       </Helmet>
       <Container>
         <div className="p-4 sm:px-6 shadow-2xl my-8 rounded-xl max-w-lg  mx-auto bg-white bg-opacity-80">

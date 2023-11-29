@@ -1,7 +1,7 @@
-import { FaUser } from "react-icons/fa";
+import { FaHome, FaSeedling, FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { MdGroups } from "react-icons/md";
-import { FaBook } from "react-icons/fa6";
+import { FaBook, FaHouseFlag } from "react-icons/fa6";
 import { RiGitPullRequestFill } from "react-icons/ri";
 import useRoleChaker from "../../../../hooks/useRoleChaker";
 
@@ -99,6 +99,44 @@ const DashMenu = () => {
           </NavLink>
         </>
       )}
+      <>
+        <div className=" block w-full py-3 ">
+          <div className="border-b-2 block w-full  border-purple-800"></div>
+        </div>
+        <NavLink
+          to="/"
+          className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
+        >
+          <FaHome />
+          Home
+        </NavLink>
+        {/* all-classes */}
+        <NavLink
+          to="/all-classes"
+          className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
+        >
+          <FaBook />
+          All classes
+        </NavLink>
+        {/* all-classes */}
+        {roolChaker !== "admin" && (
+          <NavLink
+            to="/teach-on-easy"
+            className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
+          >
+            <FaSeedling />
+            Teach on Easy
+          </NavLink>
+        )}
+        {/*  aboute */}
+        <NavLink
+          // to="/teach-on-easy"
+          className="flex items-center gap-2 hover:bg-white w-full px-1 font-semibold bg-purple-200"
+        >
+          <FaHouseFlag />
+          Aboute
+        </NavLink>
+      </>
     </div>
   );
 };

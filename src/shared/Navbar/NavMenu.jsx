@@ -44,14 +44,7 @@ const NavMenu = () => {
           sign up
         </NavLink>
       )}
-      <NavLink
-        to="/sign-in"
-        className={({ isActive }) =>
-          isActive ? "active-nav-menu" : "nav-menu"
-        }
-      >
-        sign in
-      </NavLink>
+       
     </>
   );
 };

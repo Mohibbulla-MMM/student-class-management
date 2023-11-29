@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import { ImSpinner9 } from "react-icons/im";
+import { Helmet } from "react-helmet-async";
 const AddClass = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
@@ -67,6 +68,10 @@ const AddClass = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Add Class | EasyteacH </title>
+      </Helmet>
+
       <SectionTitle title="Add Class " />
 
       <form onSubmit={handleSubmit(onSubmit)}>

@@ -4,10 +4,11 @@ import SectionTitle from "../../../../shared/SectionTitle/SectionTitle";
 import myModal from "../Users/myModal";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAllClass from "../../../../hooks/useAllClass";
+import { Link } from "react-router-dom";
 
 const Allclass = () => {
   const [classes, refetch] = useAllClass();
-  console.log(classes);
+  // console.log(classes);
   const axiosSecure = useAxiosSecure();
 
   // handle admin make popUp -------------
@@ -150,12 +151,13 @@ const Allclass = () => {
                         Delete
                       </button>
                       {/* see progress buton  */}
-                      <button
+                      <Link
+                        to={`/dashbord/all-class/${item?._id}`}
                         disabled={item?.status !== "approved"}
                         className="btn btn-sm bg-purple-800  border-none  rounded    text-white  w-28 "
                       >
                         See Progress
-                      </button>
+                      </Link>
                     </span>
                   </td>
                 </tr>
