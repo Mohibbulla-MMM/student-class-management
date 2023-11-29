@@ -1,16 +1,19 @@
-import { useAbout, useTotalClass, useTotalUser } from "../../hooks/useAbout";
+import { useAbout, useTotalUser } from "../../hooks/useAbout";
 import { FaBook, FaUser } from "react-icons/fa";
 import SectionTitle from "../../shared/SectionTitle/SectionTitle";
 import { MdGroups2 } from "react-icons/md";
 import Container from "../../utils/Container";
+import useAllClassesEstimatCounte from "../../hooks/useAllClassesEstimatCounte";
 const Aboute = () => {
   const totalEnroll = useAbout();
   const totalUser = useTotalUser();
-  const totalClass = useTotalClass();
+  const totalClass = useAllClassesEstimatCounte();
   // console.log(totalEnroll);
   // console.log(totalUser);
   // console.log(totalClass);
   // const []
+
+  
   return (
     <div>
       <Container>
