@@ -10,10 +10,9 @@ const Aboute = () => {
   const totalClass = useAllClassesEstimatCounte();
   // console.log(totalEnroll);
   // console.log(totalUser);
-  // console.log(totalClass);
+  console.log(totalClass);
   // const []
 
-  
   return (
     <div>
       <Container>
@@ -28,7 +27,7 @@ const Aboute = () => {
                 <FaBook />
               </span>
               <h1 className="font-bold text-xl">
-                Total Classes: {totalClass?.counter}
+                Total Classes: {totalClass && totalClass?.count?.counter}
               </h1>
             </div>
 

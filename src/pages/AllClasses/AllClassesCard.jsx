@@ -30,7 +30,7 @@ const AllClassesCard = ({ item }) => {
 
         {/* description  */}
         <p className="text-gray-400">
-          {description && description?.slice(0, 200)}...
+          {description && description?.slice(0, 100)}...
         </p>
       </div>
       {/* button  */}

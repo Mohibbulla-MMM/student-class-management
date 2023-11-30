@@ -73,7 +73,7 @@ const MyEnrollDetails = () => {
 
       <div className="">
         <div className="overflow-x-auto mt-5">
-          <table className="table rounded-2xl rounded-t-2xl overflow-hidden">
+          <table className={` ${totalAssignment && totalAssignment?.length === 0 && "hidden"} table rounded-2xl rounded-t-2xl overflow-hidden`}>
             {/* head */}
             <thead className="bg-purple-800  ">
               <tr className="text-white text-base ">
@@ -120,10 +120,16 @@ const MyEnrollDetails = () => {
             </tbody>
           </table>
           {totalAssignment && totalAssignment?.length === 0 ? (
-            <div className="w-full col-span-2 h-[50vh] flex flex-col justify-center items-center text-2xl font-bold text-center uppercase">
-              <h1>No assignments have been added yet. Practice well.</h1>
-              <p className="text-sm font-semibold capitalize">
-                The assignment will come very soon.
+            <div className="w-full col-span-2 h-[100vh] flex flex-col justify-center items-center text-xl font-bold text-center uppercase">
+              <img
+              className="h-[300px] -mt-20"
+                src="https://i.ibb.co/1010kDB/cooking-trns-db34c82d.gif"
+                alt=""
+              />
+              <h1>The assignment is not cooked yet!</h1>
+              <p className="text-xs font-semibold capitalize">
+                Pro Tips: You can do some practice until the new assignment is
+                released.
               </p>
             </div>
           ) : (

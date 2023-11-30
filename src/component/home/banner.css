@@ -12,7 +12,7 @@
 .mm-hero-carousel .carousel-root .thumbs-wrapper {
     margin-top: -60px;
     margin-bottom: 40px;
-    z-index: 1000;
+    z-index: 10;
     position: relative;
     display: flex;
     justify-content: center;

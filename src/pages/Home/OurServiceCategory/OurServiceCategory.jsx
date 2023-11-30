@@ -11,7 +11,7 @@ const OurServiceCategory = () => {
           {/* card continer  */}
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {/* web development  */}
-            <div className=" overflow-hidden flex justify-center items-center flex-col gap-2 p-4 py-8 bg-[#0298FF] hover:bg-[#0298FF] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center ">
+            <div className=" overflow-hidden flex   items-center flex-col gap-2 p-4 py-8 bg-[#0298FF] hover:bg-[#0298FF] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center ">
               <figure>
                 <img
                   className="border-4 rounded-full"
@@ -27,7 +27,7 @@ const OurServiceCategory = () => {
             </div>
 
             {/* Wordpress development  */}
-            <div className="flex justify-center items-center flex-col gap-2 p-4 py-8 bg-[#3784E8] hover:bg-[#3784E8] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center">
+            <div className="flex   items-center flex-col gap-2 p-4 py-8 bg-[#3784E8] hover:bg-[#3784E8] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center">
               <figure>
                 <img
                   className="border-4 rounded-full"
@@ -43,7 +43,7 @@ const OurServiceCategory = () => {
             </div>
 
             {/* video Editing   */}
-            <div className="flex justify-center items-center flex-col gap-2 p-4 py-8 bg-[#9C27B0] hover:bg-[#9C27B0] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center">
+            <div className="flex   items-center flex-col gap-2 p-4 py-8 bg-[#9C27B0] hover:bg-[#9C27B0] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center">
               <figure>
                 <img
                   className="border-4 rounded-full"
@@ -61,7 +61,7 @@ const OurServiceCategory = () => {
             </div>
 
             {/* marketing */}
-            <div className="flex justify-center items-center flex-col gap-2 p-4 py-8 bg-[#44BD32] hover:bg-[#44BD32] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center">
+            <div className="flex   items-center flex-col gap-2 p-4 py-8 bg-[#44BD32] hover:bg-[#44BD32] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center">
               <figure>
                 <img
                   className="border-4 rounded-full"
@@ -78,7 +78,7 @@ const OurServiceCategory = () => {
             </div>
 
             {/* graphics design   */}
-            <div className="flex justify-center items-center flex-col gap-2 p-4 py-8 bg-[#FF5722] hover:bg-[#FF5722] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center">
+            <div className="flex   items-center flex-col gap-2 p-4 py-8 bg-[#FF5722] hover:bg-[#FF5722] duration-300 hover:text-white bg-opacity-10 rounded-lg text-center">
               <figure>
                 <img
                   className="border-4 rounded-full"

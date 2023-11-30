@@ -18,7 +18,7 @@ const UserMenu = () => {
               className="w-12 h-12 shadow-xl border rounded-full object-cover scale-95 cursor-pointer"
             />
             {/* active dot */}
-            <div className="w-3 h-3 rounded-full bg-green-500 absolute top-2 right-0 border-2"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500 absolute bottom-2 right-0 border-2"></div>
           </figure>
         ) : (
           ""
