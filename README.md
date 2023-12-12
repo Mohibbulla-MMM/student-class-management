@@ -37,5 +37,8 @@
 - (teacher-request) page you will get the information of all the teachers 
 
 <!--  -->
-
+### admin name
+- meadmin@gamil.com
+### admin password
+- meadmin@gamil.com
 

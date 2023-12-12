@@ -22,7 +22,7 @@ const NavSearchItem = ({ data: item }) => {
       //   }}
       //   ${show ? "hidden" : "block"}
       className={`
-      w-screen h-screen min-h-[300px] fixed  top-16 left-0 overflow-y-auto bg-black bg-opacity-50 z-20 duration-300 p-1
+      w-screen h-screen min-h-[300px] fixed  top-16 left-0 overflow-y-auto bg-black bg-opacity-50 z-20 duration-300 pb-60 p-1
       ${data && data?.length > 0 ? "block" : "hidden"} 
       `}
     >
